@@ -5,10 +5,10 @@ Uses Claude Opus 4.7 with adaptive thinking and prompt caching. Exposes a
 read_file tool so the model can pull in surrounding source for context, then
 streams a structured review to stdout.
 
-Usage:
-    python review_agent.py                    # review staged changes
-    python review_agent.py --base main        # review current branch vs main
-    python review_agent.py --diff path.diff   # review a saved diff
+Run from the repo root:
+    python -m agents.review.agent                    # review staged changes
+    python -m agents.review.agent --base main        # review current branch vs main
+    python -m agents.review.agent --diff path.diff   # review a saved diff
 """
 from __future__ import annotations
 
@@ -19,6 +19,8 @@ import sys
 from pathlib import Path
 
 import anthropic
+
+from lib.tools import READ_FILE_TOOL, read_file
 
 MODEL = "claude-opus-4-7"
 MAX_TOKENS = 32000
@@ -43,88 +45,23 @@ unless they obscure intent. Don't praise; reviewers don't pad.
 
 If the diff looks fine, say so plainly and stop."""
 
-READ_FILE_TOOL = {
-    "name": "read_file",
-    "description": (
-        "Read a file from the repository. Use this to see code surrounding a "
-        "diff hunk, or to inspect a file referenced by the change. Returns "
-        "the file contents with line numbers."
-    ),
-    "input_schema": {
-        "type": "object",
-        "properties": {
-            "path": {
-                "type": "string",
-                "description": "Repository-relative path to the file.",
-            },
-            "start_line": {
-                "type": "integer",
-                "description": "Optional 1-indexed start line (inclusive).",
-            },
-            "end_line": {
-                "type": "integer",
-                "description": "Optional 1-indexed end line (inclusive).",
-            },
-        },
-        "required": ["path"],
-    },
-}
-
 
 def get_diff(args: argparse.Namespace) -> str:
     if args.diff:
         return Path(args.diff).read_text()
     if args.base:
         cmd = ["git", "diff", f"{args.base}...HEAD"]
+    elif args.unstaged:
+        cmd = ["git", "diff"]
     else:
         cmd = ["git", "diff", "--cached"]
-        if args.unstaged:
-            cmd = ["git", "diff"]
     result = subprocess.run(cmd, capture_output=True, text=True, check=True)
     return result.stdout
 
 
-def repo_root() -> Path:
-    result = subprocess.run(
-        ["git", "rev-parse", "--show-toplevel"],
-        capture_output=True,
-        text=True,
-        check=True,
-    )
-    return Path(result.stdout.strip())
-
-
-def read_file_tool(path: str, start_line: int | None, end_line: int | None) -> str:
-    root = repo_root()
-    target = (root / path).resolve()
-    # Constrain to repo: refuse paths that escape the worktree.
-    if not str(target).startswith(str(root)):
-        return f"Error: path {path!r} is outside the repository."
-    if not target.exists():
-        return f"Error: file {path!r} does not exist."
-    if not target.is_file():
-        return f"Error: {path!r} is not a regular file."
-
-    try:
-        lines = target.read_text().splitlines()
-    except UnicodeDecodeError:
-        return f"Error: {path!r} is not a text file."
-
-    start = max(1, start_line or 1)
-    end = min(len(lines), end_line or len(lines))
-    if start > len(lines):
-        return f"Error: start_line {start} is past end of file ({len(lines)} lines)."
-
-    width = len(str(end))
-    numbered = "\n".join(
-        f"{i:>{width}}\t{lines[i - 1]}" for i in range(start, end + 1)
-    )
-    return f"# {path} (lines {start}-{end} of {len(lines)})\n{numbered}"
-
-
 def dispatch_tool(name: str, tool_input: dict) -> str:
     if name == "read_file":
-        return read_file_tool(
+        return read_file(
             tool_input["path"],
             tool_input.get("start_line"),
             tool_input.get("end_line"),
@@ -139,8 +76,8 @@ def review(diff: str) -> None:
 
     client = anthropic.Anthropic()
 
-    # Cache the system prompt + tool definition (stable across calls within
-    # the loop) so each tool-result roundtrip reuses the prefix.
+    # Cache the system prompt (stable across calls within the loop) so each
+    # tool-result roundtrip reuses the prefix.
     system = [
         {
             "type": "text",
