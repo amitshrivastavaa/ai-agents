@@ -13,18 +13,18 @@ Run from the repo root:
 from __future__ import annotations
 
 import argparse
-import os
 import subprocess
 import sys
 from pathlib import Path
 
 import anthropic
 
+from lib.config import Config
+from lib.llm import cached_system, run_tool_loop
 from lib.tools import READ_FILE_TOOL, read_file
 
-MODEL = "claude-opus-4-7"
+MODEL_DEFAULT = "claude-opus-4-7"
 MAX_TOKENS = 32000
-MAX_TOOL_ITERATIONS = 12
 
 SYSTEM_PROMPT = """You are a senior code reviewer. You will be given a unified \
 git diff. Produce a focused, actionable review.
@@ -69,69 +69,30 @@ def dispatch_tool(name: str, tool_input: dict) -> str:
     return f"Error: unknown tool {name!r}"
 
 
-def review(diff: str) -> None:
+def review(client: anthropic.Anthropic, model: str, diff: str) -> None:
     if not diff.strip():
         print("No changes to review.", file=sys.stderr)
         return
-
-    client = anthropic.Anthropic()
-
-    # Cache the system prompt (stable across calls within the loop) so each
-    # tool-result roundtrip reuses the prefix.
-    system = [
-        {
-            "type": "text",
-            "text": SYSTEM_PROMPT,
-            "cache_control": {"type": "ephemeral"},
-        }
-    ]
 
     user_content = (
         "Review the following diff. Use `read_file` if you need surrounding "
         "context.\n\n<diff>\n" + diff + "\n</diff>"
     )
-    messages: list[dict] = [{"role": "user", "content": user_content}]
 
-    for _ in range(MAX_TOOL_ITERATIONS):
-        response = client.messages.create(
-            model=MODEL,
-            max_tokens=MAX_TOKENS,
-            thinking={"type": "adaptive"},
-            system=system,
-            tools=[READ_FILE_TOOL],
-            messages=messages,
-        )
-
-        for block in response.content:
-            if block.type == "text" and block.text.strip():
-                print(block.text)
-
-        if response.stop_reason != "tool_use":
-            break
-
-        messages.append({"role": "assistant", "content": response.content})
-
-        tool_results = []
-        for block in response.content:
-            if block.type == "tool_use":
-                print(
-                    f"\n[tool] read_file {block.input.get('path')}",
-                    file=sys.stderr,
-                )
-                result = dispatch_tool(block.name, block.input)
-                tool_results.append(
-                    {
-                        "type": "tool_result",
-                        "tool_use_id": block.id,
-                        "content": result,
-                    }
-                )
-        messages.append({"role": "user", "content": tool_results})
-    else:
-        print(
-            f"\n[review-agent] hit max tool iterations ({MAX_TOOL_ITERATIONS})",
-            file=sys.stderr,
-        )
+    run_tool_loop(
+        client,
+        model=model,
+        system=cached_system(SYSTEM_PROMPT),
+        tools=[READ_FILE_TOOL],
+        dispatch=dispatch_tool,
+        messages=[{"role": "user", "content": user_content}],
+        max_tokens=MAX_TOKENS,
+        thinking={"type": "adaptive"},
+        on_text=print,
+        on_tool_use=lambda name, args: print(
+            f"\n[tool] {name} {args.get('path', '')}", file=sys.stderr
+        ),
+    )
 
 
 def main() -> int:
@@ -152,9 +113,8 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        print("Error: ANTHROPIC_API_KEY is not set.", file=sys.stderr)
-        return 1
+    cfg = Config.from_env()
+    client = anthropic.Anthropic(api_key=cfg.anthropic_api_key)
 
     try:
         diff = get_diff(args)
@@ -162,7 +122,7 @@ def main() -> int:
         print(f"Error: git failed: {e.stderr}", file=sys.stderr)
         return 1
 
-    review(diff)
+    review(client, cfg.default_model, diff)
     return 0
 
 
