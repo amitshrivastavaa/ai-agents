@@ -5,6 +5,20 @@ to the Anthropic code sandbox and asks Claude to produce a spend summary,
 flag anomalies, recommend savings, and generate charts. Designed to run on a
 schedule (e.g. monthly) per tenant.
 
+## Demo
+
+<!--
+After recording, replace the line below with:
+[![asciicast](https://asciinema.org/a/<ID>.svg)](https://asciinema.org/a/<ID>)
+
+Recording command:
+    asciinema rec docs/demos/casts/spend_analyzer.cast \
+        -c "bash docs/demos/scripts/spend_analyzer.sh"
+    asciinema upload docs/demos/casts/spend_analyzer.cast
+-->
+
+> _Demo recording — TBD. See [`docs/demos/scripts/spend_analyzer.sh`](../../docs/demos/scripts/spend_analyzer.sh) for the recording command. Uses a 30-row history CSV with planted signals: a +19% Metformin price spike on `sup_cardinal` and an Amoxicillin single-source dependency on `sup_mckesson`._
+
 ## Use
 
 ```sh

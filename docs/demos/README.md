@@ -1,59 +1,102 @@
 # Demo recordings
 
-Each agent has a runbook in this directory. The runbook is what you run
-*while* the screen is being recorded — the exact commands, the inputs to
-type, and what the viewer should see.
+Each agent has a one-command demo script in [`scripts/`](scripts/). Record
+once, upload, paste the resulting URL into the agent's README. The whole
+flow takes about 20 minutes for all four agents.
 
-## Tooling (pick one)
+## Tooling
 
-- **[asciinema](https://asciinema.org/)** — `asciinema rec demo.cast`. Free,
-  embeddable in the README via SVG, plays back as real text (selectable,
-  searchable). Recommended.
-- **[terminalizer](https://terminalizer.com/)** — `terminalizer record`.
-  Produces a GIF, larger but works anywhere images render.
-- **OS screen recorder** — fine for a one-off, but loses the text fidelity
-  of a terminal recording.
+[asciinema](https://asciinema.org/) is recommended — free, embeddable in
+GitHub READMEs as an SVG badge that opens a real terminal player.
 
-## Setup before you record
+```sh
+# macOS
+brew install asciinema
+
+# Linux
+pip install asciinema
+```
+
+## One-time setup
 
 ```sh
 export ANTHROPIC_API_KEY=sk-ant-...
-pip install -r requirements.txt
 
-# Optional: lower the log level so demo logs don't dominate the screen.
-export LOG_LEVEL=WARNING
+# Optional: only needed for the po_extractor demo. Generates a synthetic
+# sample PO PDF (the file is gitignored — real vendor POs contain PII).
+pip install reportlab
+python docs/demos/scripts/generate_sample_po.py
 ```
 
-Run from the repo root.
+Resize your terminal to ~110 cols × 30 rows before recording. GitHub's
+embedded player has a fixed width and wider terminals get clipped.
 
-## Tips
+## Record each agent (one command per agent)
 
-- **Resize your terminal to ~110 cols × 30 rows.** GitHub renders embedded
-  recordings in a fixed width; wider terminals get cut off.
-- **Clear the screen before each recording** (`clear`) so the cast starts
-  from a blank canvas.
-- **Type the command, pause for half a second, then run.** Viewers need a
-  beat to read the command before the output rushes in.
-- **Keep each demo to 30–60 seconds.** Long demos lose attention. If a
-  scenario is naturally longer (compliance with multiple findings), split
-  it into two casts.
+```sh
+mkdir -p docs/demos/casts
 
-## Per-agent runbooks
+# 1. procurement_assistant
+asciinema rec docs/demos/casts/procurement_assistant.cast \
+    -c "bash docs/demos/scripts/procurement_assistant.sh"
 
-| Agent | Runbook | What it shows |
-| --- | --- | --- |
-| `procurement_assistant` | [procurement_assistant.md](procurement_assistant.md) | Buyer asks for metformin → search → compare suppliers → add to cart. |
-| `po_extractor` | [po_extractor.md](po_extractor.md) | Drop a PO PDF → typed JSON output → confidence routing. |
-| `compliance_checker` | [compliance_checker.md](compliance_checker.md) | Cart with a Schedule II SKU + insufficient license → `BLOCKER` + exit code 2. |
-| `spend_analyzer` | [spend_analyzer.md](spend_analyzer.md) | Tiny purchase-history CSV → analysis + saved chart PNG. |
+# 2. po_extractor
+asciinema rec docs/demos/casts/po_extractor.cast \
+    -c "bash docs/demos/scripts/po_extractor.sh"
 
-## Embedding in the README
+# 3. compliance_checker (hero clip — runs pass/warn/block in sequence)
+asciinema rec docs/demos/casts/compliance_checker.cast \
+    -c "bash docs/demos/scripts/compliance_checker.sh"
 
-Once you have a `.cast` (asciinema) or `.gif` file, link it from the
-agent's README:
+# 4. spend_analyzer (longer — ~60-90s — model runs Python in the sandbox)
+asciinema rec docs/demos/casts/spend_analyzer.cast \
+    -c "bash docs/demos/scripts/spend_analyzer.sh"
+```
+
+Each script handles `clear`, fake-typing the commands so the viewer can
+read them, and pacing between steps. You don't type anything during the
+recording — start the recording, run the script, walk away.
+
+## Upload and embed
+
+```sh
+asciinema upload docs/demos/casts/procurement_assistant.cast
+# Prints: https://asciinema.org/a/12345
+```
+
+Open the agent's README (e.g. `agents/procurement_assistant/README.md`) and
+replace the `_Demo recording — TBD._` placeholder block with:
 
 ```md
-![demo](docs/demos/casts/procurement_assistant.cast)
+[![asciicast](https://asciinema.org/a/12345.svg)](https://asciinema.org/a/12345)
 ```
 
-asciinema recordings render as a player; GIFs render inline.
+The HTML comment block right above the placeholder shows the exact
+recording + upload commands for that agent — keep it as a runbook.
+
+Repeat for the other three agents.
+
+## What each demo shows
+
+| Agent | Script | Length | The point |
+| --- | --- | --- | --- |
+| `procurement_assistant` | [`scripts/procurement_assistant.sh`](scripts/procurement_assistant.sh) | ~30s | Buyer asks in natural language → catalog search → supplier comparison → cart line added. Tool loop visible. |
+| `po_extractor` | [`scripts/po_extractor.sh`](scripts/po_extractor.sh) | ~20s | A PDF in, a typed `PurchaseOrder` JSON out, with `extraction_confidence` driving auto-vs-review routing. |
+| `compliance_checker` | [`scripts/compliance_checker.sh`](scripts/compliance_checker.sh) | ~50s | **Hero clip.** Cycles pass → warn → block. The block scenario cites 21 CFR 1301.74 and exits non-zero. |
+| `spend_analyzer` | [`scripts/spend_analyzer.sh`](scripts/spend_analyzer.sh) | ~90s | Code-execution sandbox: pandas + matplotlib over a 30-row CSV, generates and saves a chart PNG. |
+
+## Recording tips
+
+- **Run the script once dry** before recording, just to sanity-check your
+  API key and that the agent output looks the way you want.
+- **Keep a single recording short.** One agent, one script. Don't try to
+  splice multiple agents into one cast.
+- **The compliance_checker block scenario is your best 30 seconds.** Lead
+  your portfolio / LinkedIn post with that one if you can only record one.
+- **If a recording goes badly, just delete the `.cast` and re-run.** The
+  files are gitignored — no harm done.
+
+## Fixtures
+
+See [`fixtures/README.md`](fixtures/README.md) for what's in each cart JSON
+and the planted signals in the history CSV.
