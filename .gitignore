@@ -3,3 +3,15 @@ __pycache__/
 .venv/
 venv/
 .env
+
+# Demo fixtures: never commit real vendor PDFs / scans (PII risk).
+docs/demos/fixtures/*.pdf
+docs/demos/fixtures/*.png
+docs/demos/fixtures/*.jpg
+docs/demos/fixtures/*.jpeg
+
+# Recorded demo casts — large, regenerable, keep out of git.
+docs/demos/casts/
+
+# Per-tenant analyzer output.
+reports/

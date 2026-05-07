@@ -1,0 +1,18 @@
+{
+  "cart_id": "cart_demo_pass",
+  "tenant_id": "t_acme",
+  "lines": [
+    {
+      "sku": "SKU-METF-500-100",
+      "qty": 500,
+      "supplier_id": "sup_cardinal",
+      "unit_price": 4.62
+    },
+    {
+      "sku": "SKU-LISI-10-90",
+      "qty": 180,
+      "supplier_id": "sup_amerisource",
+      "unit_price": 3.10
+    }
+  ]
+}

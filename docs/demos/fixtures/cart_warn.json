@@ -1,0 +1,12 @@
+{
+  "cart_id": "cart_demo_warn",
+  "tenant_id": "t_acme",
+  "lines": [
+    {
+      "sku": "SKU-INS-LANT-10",
+      "qty": 12,
+      "supplier_id": "sup_cardinal",
+      "unit_price": 98.50
+    }
+  ]
+}
