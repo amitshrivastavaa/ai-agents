@@ -5,6 +5,24 @@ PDFs from an ERP, scanned faxes, photos taken on a phone — so downstream
 services (catalog matching, compliance, AP) can work against a single typed
 shape.
 
+## Demo
+
+<!--
+After recording, replace the line below with:
+[![asciicast](https://asciinema.org/a/<ID>.svg)](https://asciinema.org/a/<ID>)
+
+One-time setup (the synthetic sample PDF is gitignored):
+    pip install reportlab
+    python docs/demos/scripts/generate_sample_po.py
+
+Recording command:
+    asciinema rec docs/demos/casts/po_extractor.cast \
+        -c "bash docs/demos/scripts/po_extractor.sh"
+    asciinema upload docs/demos/casts/po_extractor.cast
+-->
+
+> _Demo recording — TBD. See [`docs/demos/scripts/po_extractor.sh`](../../docs/demos/scripts/po_extractor.sh) for the recording command._
+
 ## Use
 
 ```sh

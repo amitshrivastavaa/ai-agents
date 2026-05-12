@@ -5,6 +5,20 @@ license context and produces a typed `ComplianceReport`. Wires into the
 checkout pipeline as a gate: status `block` halts checkout, `warn` requires
 acknowledgment, `pass` proceeds.
 
+## Demo
+
+<!--
+After recording, replace the line below with:
+[![asciicast](https://asciinema.org/a/<ID>.svg)](https://asciinema.org/a/<ID>)
+
+Recording command (cycles through pass / warn / block scenarios):
+    asciinema rec docs/demos/casts/compliance_checker.cast \
+        -c "bash docs/demos/scripts/compliance_checker.sh"
+    asciinema upload docs/demos/casts/compliance_checker.cast
+-->
+
+> _Demo recording — TBD. See [`docs/demos/scripts/compliance_checker.sh`](../../docs/demos/scripts/compliance_checker.sh) for the recording command. The script cycles through pass / warn / block scenarios; the block scenario is the hero clip — Schedule II oxycodone with insufficient DEA license, citing 21 CFR 1301.74, exit code 2._
+
 ## Use
 
 ```sh

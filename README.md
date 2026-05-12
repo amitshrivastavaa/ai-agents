@@ -9,6 +9,65 @@ runnable from the CLI for development and CI use.
 All agents are built on the Anthropic API (Claude Opus 4.7) with adaptive
 thinking, prompt caching, and structured outputs where applicable.
 
+## Architecture
+
+```mermaid
+flowchart LR
+    Buyer([Pharmacy Buyer]):::actor -->|natural language| PA[procurement_assistant]:::agent
+    PA <--> Catalog[(Catalog +<br/>Supplier Marketplace)]:::data
+    PA --> Cart[Draft Cart]:::artifact
+    Cart --> CC[compliance_checker]:::agent
+    CC <--> Reg[(Drug Master /<br/>License Registry /<br/>Inventory)]:::data
+    CC -->|pass / warn| CO([Checkout]):::actor
+    CC -.->|block| Buyer
+
+    Vendor([Inbound Vendor PO]):::actor --> PX[po_extractor]:::agent
+    PX -->|typed PurchaseOrder| Catalog
+
+    Hist[(Purchase History)]:::data --> SA[spend_analyzer]:::agent
+    SA --> Report([Spend Report + Charts]):::actor
+
+    classDef agent fill:#dbeafe,stroke:#1e40af,stroke-width:2px,color:#0b1f4d
+    classDef data fill:#fef3c7,stroke:#92400e,color:#3b2200
+    classDef actor fill:#e5e7eb,stroke:#374151,color:#111827
+    classDef artifact fill:#dcfce7,stroke:#166534,color:#0b3d1c
+```
+
+The four agents touch three workflows: **buyer-driven ordering** (procurement
+assistant + compliance checker), **inbound document intake** (PO extractor),
+and **analytics** (spend analyzer). Each is independently deployable.
+
+## Highlights
+
+- **Multi-tenant scoping is platform-side, never model-side.** `tenant_id`
+  is bound at construction in `TenantContext` and never read from model
+  output, blocking prompt-injection attempts to cross tenants. See
+  [`docs/design.md`](docs/design.md).
+- **Tool loop + structured outputs together.** `compliance_checker` runs a
+  tool loop *and* enforces a Pydantic-typed `ComplianceReport` on the final
+  response — one API call covers both branches.
+- **Confidence-graded auto-vs-review.** `po_extractor` self-reports
+  `extraction_confidence` so the platform routes low-confidence
+  extractions to human review automatically.
+- **Prompt caching at the right layer.** System prompts are cached
+  (`lib/llm.cached_system`), so repeat calls only re-render the user turn —
+  ~90% cost savings on the cached prefix.
+- **Server-side code execution for analytics.** `spend_analyzer` uploads a
+  CSV, lets Claude run pandas + matplotlib in the sandbox, and downloads
+  the generated chart artifacts back to disk.
+- **Reusable across agents.** A single `run_tool_loop` in `lib/llm.py`
+  drives every tool-using agent (compliance, procurement, code review).
+  Each agent is ~150–250 LoC of domain code.
+
+## Demos and design
+
+- **[docs/design.md](docs/design.md)** — 1-page design writeup: agent boundary
+  decisions, multi-tenant scoping rationale, confidence routing, tool-loop
+  vs structured-output tradeoffs.
+- **[docs/demos/](docs/demos/)** — runbooks and sample fixtures for
+  recording per-agent demos (cart that triggers a Schedule II BLOCKER,
+  sample purchase-history CSV, etc.).
+
 ## Platform context
 
 The platform serves pharmacies, hospital systems, and distributors as

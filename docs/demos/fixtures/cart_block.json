@@ -1,0 +1,12 @@
+{
+  "cart_id": "cart_demo_block",
+  "tenant_id": "t_acme",
+  "lines": [
+    {
+      "sku": "SKU-OXYC-5-100",
+      "qty": 4,
+      "supplier_id": "sup_amerisource",
+      "unit_price": 22.10
+    }
+  ]
+}

@@ -86,7 +86,7 @@ _LOT_DAYS_TO_EXPIRY: dict[str, int] = {
     "SKU-LISI-10-90": 380,
     "SKU-AMOX-500-30": 25,    # close to expiry — should fire a WARNING
     "SKU-OXYC-5-100": 800,
-    "SKU-INS-LANT-10": 95,
+    "SKU-INS-LANT-10": 60,
 }
 
 

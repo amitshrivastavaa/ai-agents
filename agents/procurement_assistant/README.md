@@ -5,6 +5,20 @@ procurement platform. A pharmacist or hospital procurement officer describes
 what they need; the agent searches the catalog, compares supplier offers, and
 builds a draft cart — all scoped to the tenant's formulary.
 
+## Demo
+
+<!--
+After recording, replace the line below with:
+[![asciicast](https://asciinema.org/a/<ID>.svg)](https://asciinema.org/a/<ID>)
+
+Recording command:
+    asciinema rec docs/demos/casts/procurement_assistant.cast \
+        -c "bash docs/demos/scripts/procurement_assistant.sh"
+    asciinema upload docs/demos/casts/procurement_assistant.cast
+-->
+
+> _Demo recording — TBD. See [`docs/demos/scripts/procurement_assistant.sh`](../../docs/demos/scripts/procurement_assistant.sh) for the recording command._
+
 ## Use
 
 ```sh
