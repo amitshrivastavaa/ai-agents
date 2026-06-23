@@ -39,14 +39,26 @@ def rng(*parts: object) -> random.Random:
     return random.Random(stable_seed(*parts))
 
 
-def keywords(text: str, *, limit: int = 8) -> list[str]:
-    """Extract salient lowercase keywords, stopwords removed, order-preserving."""
-    seen: dict[str, None] = {}
+def tokens(text: str) -> list[str]:
+    """Lowercased content tokens — repeats kept, stopwords and short words dropped.
+
+    Repeats are kept (unlike :func:`keywords`) so this can feed a term-frequency
+    embedding.
+    """
+    out: list[str] = []
     for raw in re.findall(r"[A-Za-z][A-Za-z0-9'+-]*", text.lower()):
-        if len(raw) < 3 or raw in _STOPWORDS:
+        word = raw.strip("'+-")
+        if len(word) < 3 or word in _STOPWORDS:
             continue
-        seen.setdefault(raw.strip("'+-"), None)
-    seen.pop("", None)
+        out.append(word)
+    return out
+
+
+def keywords(text: str, *, limit: int = 8) -> list[str]:
+    """Salient lowercase keywords, stopwords removed, de-duplicated, in order."""
+    seen: dict[str, None] = {}
+    for word in tokens(text):
+        seen.setdefault(word, None)
     return list(seen)[:limit]
 
 

@@ -14,6 +14,7 @@ install), and upgrades to a real model when `ANTHROPIC_API_KEY` is set.
 | MVP | What it is | Inspired by |
 | --- | --- | --- |
 | [`agent_swarm`](agent_swarm/) | A panel of specialist agents debates your question over three rounds and votes; a moderator synthesizes a decision record with confidence, consensus, and dissent. | the viral *TradingAgents* LLM trading firm |
+| [`agent_memory`](agent_memory/) | A persistent memory that grows with you: an episodic stream you can search by meaning (relevance × importance × recency), reflected into semantic insights over time. | the "agent that grows with you" wave; Generative Agents |
 
 _(more landing through the night — see [`PROGRESS.md`](PROGRESS.md))_
 

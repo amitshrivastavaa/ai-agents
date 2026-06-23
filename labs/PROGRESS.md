@@ -33,8 +33,8 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 | --- | --- | --- | --- |
 | 0 | `_kernel` | shared Brain + deterministic text utils | ✅ done |
 | 1 | `agent_swarm` | multi-agent debate firm (TradingAgents, generalized) | ✅ done — 9 tests green |
-| 2 | `agent_memory` | an agent that *grows with you*: semantic+episodic+working memory, reflection (Hermes/generative-agents) | ⏳ next |
-| 3 | `jailbreak_gauntlet` | defensive agentic-security harness: prompt-injection probes vs. a defended agent, scored (LLM4Pentest) | ⏳ backlog |
+| 2 | `agent_memory` | an agent that *grows with you*: semantic+episodic+working memory, reflection (Hermes/generative-agents) | ✅ done — 10 tests green |
+| 3 | `jailbreak_gauntlet` | defensive agentic-security harness: prompt-injection probes vs. a defended agent, scored (LLM4Pentest) | ⏳ next |
 | 4 | `prompt_evolver` | evolutionary/genetic prompt optimizer over a task suite (DSPy/evo-prompt) | ⏳ backlog |
 | 5 | `tiny_town` | Smallville-style generative-agent simulation on a grid | ⏳ backlog |
 | 6 | `agent_os` | micro agent-OS: scheduler + task queue + blackboard (AutoGPT platform) | ⏳ backlog |
@@ -52,7 +52,7 @@ python -m unittest discover -s labs -t . -p 'test_*.py'   # all lab tests
 
 ## Next steps (for the next wakeup)
 
-- Build MVP #2 `agent_memory`. Then #3. Keep going down the table.
+- Build MVP #3 `jailbreak_gauntlet`. Then #4+. Keep going down the table.
 - After each: run its tests + `unittest discover -s labs -t .`, update this table,
   commit, push.
 - If you hit a usage/time limit: stop, and the loop will re-check on its
