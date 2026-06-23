@@ -16,6 +16,7 @@ install), and upgrades to a real model when `ANTHROPIC_API_KEY` is set.
 | [`agent_swarm`](agent_swarm/) | A panel of specialist agents debates your question over three rounds and votes; a moderator synthesizes a decision record with confidence, consensus, and dissent. | the viral *TradingAgents* LLM trading firm |
 | [`agent_memory`](agent_memory/) | A persistent memory that grows with you: an episodic stream you can search by meaning (relevance × importance × recency), reflected into semantic insights over time. | the "agent that grows with you" wave; Generative Agents |
 | [`jailbreak_gauntlet`](jailbreak_gauntlet/) | A defensive guardrail-evaluation harness: a categorized battery of injection/jailbreak probes scored against a guard policy (recall, false-positive rate, grade), with a decode-and-rescan defense. | red-team eval harnesses (LLM4Pentest, Secure Code Game) |
+| [`prompt_evolver`](prompt_evolver/) | A genetic algorithm that evolves prompts: a prompt is a genome of instruction directives, bred across generations and selected by task accuracy. Discovers helpful directives, drops harmful ones, finds working step-orders. | DSPy / evolutionary prompt search |
 
 _(more landing through the night — see [`PROGRESS.md`](PROGRESS.md))_
 
