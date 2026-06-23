@@ -38,9 +38,21 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 | 4 | `prompt_evolver` | evolutionary/genetic prompt optimizer over a task suite (DSPy/evo-prompt) | ✅ done — 10 tests green |
 | 5 | `tiny_town` | Smallville-style generative-agent simulation (reuses agent_memory!) | ✅ done — 11 tests green |
 | 6 | `agent_os` | micro agent-OS: scheduler + task queue + blackboard (AutoGPT platform) | ✅ done — 12 tests green |
-| 7 | `repo_cartographer` | map a repo into a knowledge graph + answer questions | ⏳ next |
+| 7 | `repo_cartographer` | map a Python repo into a dependency/knowledge graph (AST) + answer "what depends on X" | ⏳ next |
+| 8 | `world_model` | a "think before you act" planner: build an internal model of a small env, simulate candidate action sequences via lookahead/MCTS, pick the best predicted plan (world-models + reasoning trend) | ⏳ backlog |
+| 9 | `evo_arena` | a population of agent strategies that **co-evolve** on iterated games (Prisoner's Dilemma / Axelrod), with shared experience — watch cooperation emerge (CORAL/SAGE multi-agent evolution, June 2026) | ⏳ backlog |
 
 (Append new ideas here as they're found. Keep the table honest.)
+
+### Idea sources (June 2026 research)
+- Multi-agent **evolution** is hot: CORAL (autonomous multi-agent evolution on
+  open-ended problems, persistent memory, 3-10x over fixed baselines), SAGE &
+  Group-Evolving Agents (co-evolving agents, experience sharing, 71% SWE-bench).
+  → `evo_arena` (#9).
+- **World models + reasoning** (o3/R1/extended-thinking → single-call planning,
+  DeerFlow long-horizon agents). → `world_model` (#8).
+- Memory as a first-class primitive (Ontheia/pgvector) — already covered by
+  `agent_memory`. Graph orchestration (LangGraph) — covered by `agent_os`.
 
 ## How to run what exists
 
