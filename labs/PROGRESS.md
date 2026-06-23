@@ -36,8 +36,8 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 | 2 | `agent_memory` | an agent that *grows with you*: semantic+episodic+working memory, reflection (Hermes/generative-agents) | ✅ done — 10 tests green |
 | 3 | `jailbreak_gauntlet` | defensive agentic-security harness: prompt-injection probes vs. a defended agent, scored (LLM4Pentest) | ✅ done — 11 tests green, guard grades A- |
 | 4 | `prompt_evolver` | evolutionary/genetic prompt optimizer over a task suite (DSPy/evo-prompt) | ✅ done — 10 tests green |
-| 5 | `tiny_town` | Smallville-style generative-agent simulation on a grid | ⏳ next |
-| 6 | `agent_os` | micro agent-OS: scheduler + task queue + blackboard (AutoGPT platform) | ⏳ backlog |
+| 5 | `tiny_town` | Smallville-style generative-agent simulation (reuses agent_memory!) | ✅ done — 11 tests green |
+| 6 | `agent_os` | micro agent-OS: scheduler + task queue + blackboard (AutoGPT platform) | ⏳ next |
 | 7 | `repo_cartographer` | map a repo into a knowledge graph + answer questions | ⏳ backlog |
 
 (Append new ideas here as they're found. Keep the table honest.)
@@ -52,7 +52,7 @@ python -m unittest discover -s labs -t . -p 'test_*.py'   # all lab tests
 
 ## Next steps (for the next wakeup)
 
-- Build MVP #5 `tiny_town`. Then #6+. Keep going down the table.
+- Build MVP #6 `agent_os`. Then #7+. Keep going down the table.
 - After each: run its tests + `unittest discover -s labs -t .`, update this table,
   commit, push.
 - If you hit a usage/time limit: stop, and the loop will re-check on its
