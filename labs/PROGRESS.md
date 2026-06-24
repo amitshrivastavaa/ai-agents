@@ -67,6 +67,8 @@ merge later batches (the closed PR #3 can't be reused). CI is the "deploy".
 
 | 19 | `symbolic_regression` | genetic programming over expression trees rediscovers formulas from data (x*x-2, x*sin(x), x³-x) — verifier-guided evolutionary search (AlphaEvolve) | ✅ done — 11 tests green |
 
+| 20 | `qlearning` | tabular Q-learning on a gridworld (cliff-walk/maze/rooms): learns the optimal policy from reward, matches value iteration; policy arrows + value heatmap | ✅ done — 9 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Idea sources (second research round, June 2026)
