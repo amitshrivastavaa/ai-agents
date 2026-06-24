@@ -105,6 +105,8 @@ PRs can't be reused) and merge it.
 
 | 33 | `gp` | Gaussian Process regression from scratch (RBF kernel + Cholesky solve, no training): closed-form posterior mean+variance gives CALIBRATED uncertainty — band pinches to noise floor at data, balloons to prior in gaps/extrapolation; longer lengthscale fills gaps more confidently; complements kalman (#31) | ✅ done — 10 tests green |
 
+| 34 | `hmm` | Hidden Markov Models from scratch (log-space Viterbi + forward + forward-backward), shown on the dishonest casino: recovers which die (fair/loaded) was in play from rolls alone (~80-95% acc) + posterior confidence; PROVEN correct vs brute-force enumeration of all paths; fills the sequence-DP gap | ✅ done — 8 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Deferred / lessons
