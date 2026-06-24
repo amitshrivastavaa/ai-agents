@@ -56,6 +56,7 @@ into `labs/`, continuously through the night. Go wild — but ship things that
   MVP so the committed snapshot stays current (the workflow also rebuilds on push).
 - PR #22 merged: #41 `forest` (random forest, ensembles #40 tree) → `main`.
 - PR #23 merged: #42 `boosting` (gradient boosting / XGBoost engine) → `main`.
+- PR #24 merged: #43 `naivebayes` (Naive Bayes text classifier) → `main`.
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
@@ -139,6 +140,8 @@ PRs can't be reused) and merge it.
 | 42 | `boosting` | gradient boosting from scratch (the XGBoost/LightGBM engine): sequential shallow regression trees each fit the residual = negative gradient → gradient descent in function space; 150 depth-2 stumps trace sin(1.5x) (~12× better than one stump), monotone train loss, shrinkage knob; completes tree→forest→boosting | ✅ done — 8 tests green |
 
 | 43 | `naivebayes` | multinomial Naive Bayes text classifier (counts + logs + Laplace smoothing): ~95% sentiment accuracy vs ~50% baseline, interpretable top-words per class (log-odds), smoothing handles unseen words, more data helps; fills the text-classification gap | ✅ done — 7 tests green |
+
+| 44 | `logreg` | logistic regression by gradient descent (the canonical linear classifier): convex cross-entropy → monotone descent to global optimum, linear boundary (~97% on separable), calibrated probabilities, L2 weight decay; honestly underfits moons (~86%); discriminative counterpart to naivebayes | ✅ done — 7 tests green |
 
 (Append new ideas here as they're found. Keep the table honest.)
 
