@@ -29,11 +29,12 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 
 ## Shipped to main
 
-PR #3 (`claude/vibrant-carson-s0hqd6` → `main`) was **merged** — MVPs #0–19 +
-GitHub Actions CI (`.github/workflows/labs-ci.yml`, runs all tests + demo smoke
-tests, stdlib-only) are on `main`. The user authorized creating/merging PRs and
-deploying. Future work keeps going on this branch; open a **follow-up PR** to
-merge later batches (the closed PR #3 can't be reused). CI is the "deploy".
+- PR #3 merged: MVPs #0–19 + GitHub Actions CI (`.github/workflows/labs-ci.yml`,
+  runs all tests + demo smoke tests, stdlib-only) → `main`.
+- PR #4 merged: #20 `qlearning` + #21 `attention` → `main`.
+The user authorized creating/merging PRs and deploying. CI is the "deploy".
+Keep building on this branch; open a **follow-up PR** for each new batch (closed
+PRs can't be reused) and merge it.
 
 ## Status board
 
