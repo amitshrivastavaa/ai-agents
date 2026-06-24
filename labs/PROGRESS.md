@@ -120,6 +120,8 @@ PRs can't be reused) and merge it.
 
 | 38 | `kmeans` | k-means clustering (Lloyd) + k-means++ init + elbow method: inertia monotonically decreases, recovers separated blobs (~99% purity), k-means++ crushes random init (mean inertia 265 vs 352, far better worst-case), elbow finds true k; unsupervised companion to pca | ✅ done — 7 tests green |
 
+| 39 | `conformal` | conformal prediction (distribution-free uncertainty, trending): split-conformal wraps any model — calibration-set residual quantile gives intervals with PROVEN ≥1−α coverage; empirical coverage lands exactly on 0.95/0.90/0.80 across 40 splits regardless of (heteroscedastic) noise; adaptive variant widens with noise; assumption-light cousin of gp | ✅ done — 7 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Deferred / lessons
