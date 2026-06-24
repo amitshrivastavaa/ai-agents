@@ -57,6 +57,8 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 
 | 18 | `moe` | mixture of experts: Gaussian-gated router + EM-specialized linear experts beat a single model 14× on piecewise data; load-balanced (Mixtral lineage) | ✅ done — 10 tests green |
 
+| 19 | `symbolic_regression` | genetic programming over expression trees rediscovers formulas from data (x*x-2, x*sin(x), x³-x) — verifier-guided evolutionary search (AlphaEvolve) | ✅ done — 11 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Idea sources (second research round, June 2026)
@@ -96,9 +98,10 @@ python -m unittest discover -s labs -t . -p 'test_*.py'   # all lab tests
   (from scratch, foundational, fast), MoE router (gating + experts + load
   balancing), PDDL/STRIPS planner (symbolic AI), AlphaEvolve-style symbolic
   regression (evolve a formula, verified). Then a fresh WebSearch round.
-  Unbuilt backlog: AlphaEvolve-style program/formula search w/ a verifier,
-  diffusion-from-scratch, speculative decoding, LLM-debate-for-truth,
-  PDDL/STRIPS planner. (#16 bpe, #17 neuroevolution, #18 moe DONE.)
+  Unbuilt backlog: diffusion-from-scratch, speculative decoding,
+  LLM-debate-for-truth, PDDL/STRIPS planner, RAG/vector-search from scratch,
+  q-learning gridworld, transformer-attention-from-scratch.
+  (#16 bpe, #17 neuroevolution, #18 moe, #19 symbolic_regression DONE.)
   Consider a fresh WebSearch round soon for newer trends.
 - After each: run its tests + `unittest discover -s labs -t .`, update this table,
   commit, push.
