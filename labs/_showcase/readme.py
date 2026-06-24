@@ -12,7 +12,7 @@ from __future__ import annotations
 import re
 
 # | [`name`](name/) | tagline | inspired_by |
-_ROW = re.compile(r"^\|\s*\[`?([a-z0-9_]+)`?\]\([a-z0-9_]+/\)\s*\|(.*)\|(.*)\|\s*$")
+_ROW = re.compile(r"^\|\s*\[`?([a-z0-9_]+)`?\]\([a-z0-9_]+/\)\s*\|([^|]*)\|([^|]*)\|\s*$")
 
 
 def parse_readme(text: str) -> dict[str, dict[str, str]]:

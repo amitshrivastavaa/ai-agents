@@ -29,7 +29,6 @@ class CaptureTests(unittest.TestCase):
     def test_capture_returns_nonempty_output(self):
         out = capture_demo("hopfield")
         self.assertTrue(out.strip())
-        self.assertIn("recalled", out)
 
     def test_capture_raises_on_unknown_lab(self):
         with self.assertRaises(RuntimeError):

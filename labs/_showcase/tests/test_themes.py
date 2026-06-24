@@ -20,7 +20,7 @@ class ThemeTests(unittest.TestCase):
             self.assertIn("accent", meta)
             self.assertTrue(meta["accent"].startswith("#"), tid)
 
-    def test_theme_for_defaults_to_classical(self):
+    def test_theme_for_maps_and_defaults(self):
         self.assertEqual(theme_for("totally_new_lab"), "classical")
         self.assertEqual(theme_for("hopfield"), "classical")
         self.assertEqual(theme_for("agent_swarm"), "agents")

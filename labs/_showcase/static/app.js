@@ -94,11 +94,11 @@ function renderSession(lab) {
         <div class="cmd">$ python -m labs.${esc(lab.name)}.demo</div>
         <pre class="out" id="out"></pre>
       </div>
-      <div class="cap">inspired by ${esc(lab.inspired_by) || "—"}</div>
+      <div class="cap">inspired by ${(lab.inspired_by && esc(lab.inspired_by)) || "—"}</div>
       <nav class="sessnav">
         <a href="#/${encodeURIComponent(prev.name)}">‹ ${esc(prev.name)}</a>
         <button id="replay">▶ replay</button>
-        <a href="${esc(lab.source_url)}" target="_blank" rel="noopener">view source ↗</a>
+        <a href="${encodeURI(lab.source_url)}" target="_blank" rel="noopener">view source ↗</a>
         <a href="#/${encodeURIComponent(next.name)}">${esc(next.name)} ›</a>
       </nav>
     </div>`;

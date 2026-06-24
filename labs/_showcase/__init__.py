@@ -6,3 +6,5 @@ leading underscore marks it as infrastructure so lab/demo discovery skips it.
 
     python -m labs._showcase.build --out site/
 """
+from __future__ import annotations
+
