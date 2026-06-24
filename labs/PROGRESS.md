@@ -74,6 +74,8 @@ PRs can't be reused) and merge it.
 
 | 22 | `rag` | retrieval-augmented generation from scratch: TF-IDF index + top-k retrieval + grounded extractive answers with citations + abstention (no hallucination) | ✅ done — 9 tests green |
 
+| 23 | `diffusion` | score-based diffusion generative model from scratch: annealed Langevin sampling with the analytic GMM score turns noise into a ring/spiral/clusters (no training) | ✅ done — 7 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Idea sources (second research round, June 2026)
