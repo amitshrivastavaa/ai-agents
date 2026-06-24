@@ -11,6 +11,17 @@ install), and upgrades to a real model when `ANTHROPIC_API_KEY` is set.
 > platform — it's an experimentation sandbox. See
 > [`PROGRESS.md`](PROGRESS.md) for the running build log.
 
+## 🖼️ Showcase
+
+- **Live gallery** → **https://amitshrivastavaa.github.io/ai-agents/** — every
+  demo's real output on one page (auto-built by [`tools/build_site.py`](../tools/build_site.py)
+  and published by the [`pages`](../.github/workflows/pages.yml) workflow; enable
+  it once via repo *Settings → Pages → Source: GitHub Actions*).
+- **Browse locally** → `python -m labs` lists all MVPs; `python -m labs <name>`
+  runs one; `python -m labs --all` runs them all.
+- **Rebuild the page** → `python tools/build_site.py` writes `docs/index.html`
+  (open it directly — no server needed).
+
 ## The MVPs
 
 | MVP | What it is | Inspired by |
