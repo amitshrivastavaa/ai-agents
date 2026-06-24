@@ -49,6 +49,8 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 
 | 14 | `micrograd` | a from-scratch reverse-mode autograd engine + a tiny MLP that learns (XOR/circles/sine) via backprop & SGD — "build ML from scratch" | ✅ done — 11 tests green, gradients verified vs numerical |
 
+| 15 | `morphogenesis` | Gray-Scott reaction-diffusion: self-organizing + self-healing Turing patterns (morphogenesis → Growing Neural CA), shaded ASCII | ✅ done — 7 tests green, regrows after damage |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Idea sources (second research round, June 2026)
@@ -82,15 +84,16 @@ python -m unittest discover -s labs -t . -p 'test_*.py'   # all lab tests
 
 ## Next steps (for the next wakeup)
 
-- #10-14 (tree_of_thoughts, constitutional, swarm, hopfield, micrograd) DONE.
-- Next wakeup: build from the unbuilt-ideas list below (no research needed yet),
-  or do a fresh WebSearch round. Strong next picks: neural cellular automata
-  (self-healing pattern, very visual), AlphaEvolve-style verifier-guided program
-  search, MoE router, BPE tokenizer, PDDL/STRIPS planner, speculative decoding.
-  Unbuilt backlog: AlphaEvolve-style program search w/ a verifier, neuroevolution
-  of a tiny controller, mixture-of-experts router, diffusion-from-scratch,
-  speculative decoding, BPE tokenizer, neural cellular automata, LLM-debate,
-  PDDL/STRIPS planner.
+- #10-15 (tree_of_thoughts, constitutional, swarm, hopfield, micrograd,
+  morphogenesis) DONE.
+- Next wakeup: build from the unbuilt backlog. Strong next picks: BPE tokenizer
+  (from scratch, foundational, fast), MoE router (gating + experts + load
+  balancing), PDDL/STRIPS planner (symbolic AI), AlphaEvolve-style symbolic
+  regression (evolve a formula, verified). Then a fresh WebSearch round.
+  Unbuilt backlog: AlphaEvolve-style program/formula search w/ a verifier,
+  neuroevolution of a tiny controller (can reuse micrograd net as the policy),
+  MoE router, diffusion-from-scratch, speculative decoding, BPE tokenizer,
+  LLM-debate-for-truth, PDDL/STRIPS planner.
 - After each: run its tests + `unittest discover -s labs -t .`, update this table,
   commit, push.
 - If you hit a usage/time limit: stop, and the loop will re-check on its
