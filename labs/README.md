@@ -39,6 +39,7 @@ install), and upgrades to a real model when `ANTHROPIC_API_KEY` is set.
 | [`rag`](rag/) | Retrieval-augmented generation from scratch: a TF-IDF index, top-k retrieval, grounded answers with citations, and abstention when the answer isn't in the knowledge base (no hallucination). | RAG (the dominant production pattern) |
 | [`diffusion`](diffusion/) | A score-based diffusion generative model: annealed Langevin sampling with the analytic mixture-of-Gaussians score turns pure noise into a ring, spiral, or clusters — the real sampler, no training. | diffusion models / score-based generation |
 | [`planner`](planner/) | A classical STRIPS planner: facts, actions with add/delete effects, and BFS/A* state-space search that solves the Sussman anomaly optimally. Renders block towers + the plan in ASCII. | symbolic planning / GOFAI |
+| [`speculative`](speculative/) | Speculative decoding from scratch: a cheap bigram **draft** guesses k tokens, an accurate 4-gram **target** verifies a whole block per call — provably **lossless** (output identical to pure target greedy) at ~2.2× fewer target calls. | fast LLM serving (Leviathan/Chen 2023) |
 
 _(more landing through the night — see [`PROGRESS.md`](PROGRESS.md))_
 
