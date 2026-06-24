@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>labs — a research lab of wild AI MVPs</title>
-<meta name="description" content="40 self-contained, from-scratch AI/ML MVPs — each runs offline with the Python standard library alone.">
+<meta name="description" content="41 self-contained, from-scratch AI/ML MVPs — each runs offline with the Python standard library alone.">
 <style>
 :root{--bg:#0d1117;--panel:#161b22;--ink:#e6edf3;--mut:#8b949e;--acc:#58a6ff;
 --term:#0b0e14;--green:#3fb950;--border:#30363d}
@@ -43,15 +43,15 @@ footer{padding:48px 0 80px;color:var(--mut);text-align:center;font-size:14px}
 <div class="wrap">
 <header>
   <h1>labs<span style="color:var(--mut);font-weight:400"> / wild AI MVPs</span></h1>
-  <p class="tag">40 self-contained MVPs, each inspired by a trending idea in AI —
+  <p class="tag">41 self-contained MVPs, each inspired by a trending idea in AI —
   built from scratch, running <b>offline with the Python standard library alone</b>.</p>
   <div class="stats">
-    <div class="stat"><b>40</b><span>MVPs</span></div>
-    <div class="stat"><b>389</b><span>passing tests</span></div>
+    <div class="stat"><b>41</b><span>MVPs</span></div>
+    <div class="stat"><b>396</b><span>passing tests</span></div>
     <div class="stat"><b>0</b><span>dependencies to run</span></div>
     <div class="stat"><b>100%</b><span>deterministic</span></div>
   </div>
-  <div class="toc"><a href="#agent_swarm">agent_swarm</a><a href="#agent_memory">agent_memory</a><a href="#jailbreak_gauntlet">jailbreak_gauntlet</a><a href="#prompt_evolver">prompt_evolver</a><a href="#tiny_town">tiny_town</a><a href="#agent_os">agent_os</a><a href="#repo_cartographer">repo_cartographer</a><a href="#world_model">world_model</a><a href="#evo_arena">evo_arena</a><a href="#tree_of_thoughts">tree_of_thoughts</a><a href="#constitutional">constitutional</a><a href="#swarm">swarm</a><a href="#hopfield">hopfield</a><a href="#micrograd">micrograd</a><a href="#morphogenesis">morphogenesis</a><a href="#bpe">bpe</a><a href="#neuroevolution">neuroevolution</a><a href="#moe">moe</a><a href="#symbolic_regression">symbolic_regression</a><a href="#qlearning">qlearning</a><a href="#attention">attention</a><a href="#rag">rag</a><a href="#diffusion">diffusion</a><a href="#planner">planner</a><a href="#speculative">speculative</a><a href="#ssm">ssm</a><a href="#bandits">bandits</a><a href="#grpo">grpo</a><a href="#flow">flow</a><a href="#transformer">transformer</a><a href="#kalman">kalman</a><a href="#lsh">lsh</a><a href="#gp">gp</a><a href="#hmm">hmm</a><a href="#pagerank">pagerank</a><a href="#sketch">sketch</a><a href="#pca">pca</a><a href="#kmeans">kmeans</a><a href="#conformal">conformal</a><a href="#tree">tree</a></div>
+  <div class="toc"><a href="#agent_swarm">agent_swarm</a><a href="#agent_memory">agent_memory</a><a href="#jailbreak_gauntlet">jailbreak_gauntlet</a><a href="#prompt_evolver">prompt_evolver</a><a href="#tiny_town">tiny_town</a><a href="#agent_os">agent_os</a><a href="#repo_cartographer">repo_cartographer</a><a href="#world_model">world_model</a><a href="#evo_arena">evo_arena</a><a href="#tree_of_thoughts">tree_of_thoughts</a><a href="#constitutional">constitutional</a><a href="#swarm">swarm</a><a href="#hopfield">hopfield</a><a href="#micrograd">micrograd</a><a href="#morphogenesis">morphogenesis</a><a href="#bpe">bpe</a><a href="#neuroevolution">neuroevolution</a><a href="#moe">moe</a><a href="#symbolic_regression">symbolic_regression</a><a href="#qlearning">qlearning</a><a href="#attention">attention</a><a href="#rag">rag</a><a href="#diffusion">diffusion</a><a href="#planner">planner</a><a href="#speculative">speculative</a><a href="#ssm">ssm</a><a href="#bandits">bandits</a><a href="#grpo">grpo</a><a href="#flow">flow</a><a href="#transformer">transformer</a><a href="#kalman">kalman</a><a href="#lsh">lsh</a><a href="#gp">gp</a><a href="#hmm">hmm</a><a href="#pagerank">pagerank</a><a href="#sketch">sketch</a><a href="#pca">pca</a><a href="#kmeans">kmeans</a><a href="#conformal">conformal</a><a href="#tree">tree</a><a href="#forest">forest</a></div>
 </header>
 
 <section class="mvp" id="agent_swarm">
@@ -475,18 +475,18 @@ of the failed build — all from the same scheduler.</pre>
     &nbsp;python -m labs.repo_cartographer.demo</div>
     <pre>Mapping &#x27;labs&#x27; — the lab maps itself:
 
-  319 modules · 541 edges · 203 classes · 573 functions · 18979 LOC · 0 cycles
+  326 modules · 557 edges · 205 classes · 581 functions · 19348 LOC · 0 cycles
 
 Most depended-on modules (the load-bearing ones):
-  54 ← labs._kernel
+  56 ← labs._kernel
+   9 ← labs.tree.tree
    7 ← labs.qlearning.gridworld
+   7 ← labs.tree.data
+   7 ← labs.tree.metrics
    6 ← labs.diffusion.target
-   6 ← labs.moe.data
-   6 ← labs.neuroevolution.cartpole
-   6 ← labs.neuroevolution.policy
 
 Blast radius if you change the shared kernel text utils:
-  189 modules would be affected.
+  196 modules would be affected.
 
 MVP packages and what each leans on:
   agent_swarm          reuses: labs._kernel, labs._kernel.brain, labs._kernel.text
@@ -2114,6 +2114,54 @@ test peaks then overfits:
 
   Multiclass too: 3-blob data → 100% in 3 leaves. And XOR — which a linear model can&#x27;t separate
   at all (~50%) — the tree nails at 100% (greedy splitting just needs a few levels to find the checkerboard).</pre>
+  </div>
+</section>
+
+<section class="mvp" id="forest">
+  <h2><a href="#forest">forest</a><span class="badge">random forests / bagging</span></h2>
+  <p class="desc">A random forest from scratch — an ensemble of <code>tree</code>&#x27;s <code>DecisionTree</code> with <strong>bagging</strong> + <strong>feature subsampling</strong>. Voting decorrelated trees beats a single tree (~97.5% vs 94% on moons), the variance halves as trees are added, and the <strong>out-of-bag</strong> score gives validation for free.</p>
+  <p class="run">run it&nbsp; <code>python -m labs.forest.demo</code></p>
+  <div class="term">
+    <div class="bar"><span class="dot" style="background:#ff5f56"></span>
+    <span class="dot" style="background:#ffbd2e"></span>
+    <span class="dot" style="background:#27c93f"></span>
+    &nbsp;python -m labs.forest.demo</div>
+    <pre>Random forest — many trees vote, and the noise cancels out.
+
+Each tree trains on a bootstrap resample with random features, so they
+overfit differently; averaging their votes is smoother and steadier.
+
+25-tree forest decision boundary (· vs ░, points o/#):
+  |·································░░░░░░░░░░░░░|
+  |···················o·············░░░░░░░░░░░░░|
+  |··············oooo·o··o··········░░░░░░░░░░░░░|
+  |········oo·ooooooooooo·o·········░░░░░░░░░░░░░|
+  |······ooooooooooooooooooooo·oo···░░░░░░░░░░░░░|
+  |·····ooooooo··#o·o·····ooooo·····░░░░░#░░░░░░░|
+  |·····ooooooo··#####░#··ooooooo···░░░░#####░░░░|
+  |···ooooooo··░░░░###░#░░·ooooo··░░░░░######░░░░|
+  |····oooooo··░░#░#####░#░·oooo·o░o░#░###░#░#░░░|
+  |····o·o·o···░░░#░####░##o░░░░o##░##░##░░░░░░░░|
+  |············░░░░░░░####░###########░###░░░░░░░|
+  |············░░░░░░##░##############░#░░░░░░░░░|
+  |············░░░░░░░░░░░##░#░##░#░#░░░░░░░░░░░░|
+  |············░░░░░░░░░░░░░░░#░░░░░░░░░░░░░░░░░░|
+  |············░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░|
+
+Both a single tree and the forest separate these moons — the forest&#x27;s
+edge shows up in the numbers that matter:
+
+  single tree test accuracy : 94.2%
+  forest      test accuracy : 97.5%
+  forest out-of-bag accuracy: 96.8%  (validation for free — no held-out set needed)
+
+More trees → less variance. Mean ± std of test accuracy over 10 splits:
+    1 trees    94.6%  ± 2.7
+    5 trees    96.8%  ± 1.8
+   15 trees    97.6%  ± 1.1
+   40 trees    98.0%  ± 1.2
+
+  And XOR — the single tree&#x27;s nemesis — the forest still nails: 99%.</pre>
   </div>
 </section>
 

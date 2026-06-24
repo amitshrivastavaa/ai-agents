@@ -48,6 +48,10 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 - PR #18 merged: #38 `kmeans` (k-means clustering / k-means++) → `main`.
 - PR #19 merged: #39 `conformal` (distribution-free prediction intervals) → `main`.
 - PR #20 merged: #40 `tree` (CART decision tree) → `main`.  ← 40 MVPs milestone
+- PR #21 merged: SHOWCASE — static GitHub Pages gallery (`tools/build_site.py` →
+  `docs/index.html`, `pages.yml` auto-deploy) + `python -m labs` launcher. Live at
+  https://amitshrivastavaa.github.io/ai-agents/ once Pages source is set to
+  "GitHub Actions" in repo settings (one-time, user must toggle).
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
@@ -124,7 +128,9 @@ PRs can't be reused) and merge it.
 
 | 39 | `conformal` | conformal prediction (distribution-free uncertainty, trending): split-conformal wraps any model — calibration-set residual quantile gives intervals with PROVEN ≥1−α coverage; empirical coverage lands exactly on 0.95/0.90/0.80 across 40 splits regardless of (heteroscedastic) noise; adaptive variant widens with noise; assumption-light cousin of gp | ✅ done — 7 tests green |
 
-| 40 | `tree` | CART decision tree from scratch (Gini/entropy + greedy splits): axis-aligned cuts carve non-linear boundaries — 100% on separable blobs, ~94% on moons (ASCII decision-boundary staircase), solves XOR a linear model can't, depth sweep shows the overfitting gap; building block of RF/XGBoost | ✅ done — 9 tests green |
+| 40 | `tree` | CART decision tree from scratch (Gini/entropy + greedy splits): axis-aligned cuts carve non-linear boundaries — 100% on separable blobs, ~94% on moons (ASCII decision-boundary staircase), solves XOR a linear model can't, depth sweep shows the overfitting gap; building block of RF/XGBoost. Extended with max_features for forests. | ✅ done — 9 tests green |
+
+| 41 | `forest` | random forest from scratch (ensemble of #40's DecisionTree): bagging + √d feature subsampling decorrelate the trees; voting beats a single tree (~97.5% vs 94% on moons), variance halves with more trees, out-of-bag score ≈ test (free validation), solves XOR; caps the tree thread | ✅ done — 7 tests green |
 
 (Append new ideas here as they're found. Keep the table honest.)
 
