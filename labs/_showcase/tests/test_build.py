@@ -10,10 +10,11 @@ import unittest
 from pathlib import Path
 
 from labs._showcase.build import build, collect, main
+from labs._showcase.descriptions import LAB_BLURBS
 from labs._showcase.discover import discover_labs
 from labs._showcase.themes import THEME_MAP
 
-REQUIRED_KEYS = {"name", "theme", "tagline", "inspired_by", "demo", "source_url"}
+REQUIRED_KEYS = {"name", "theme", "plain", "tagline", "inspired_by", "demo", "source_url"}
 
 
 class CollectTests(unittest.TestCase):
@@ -27,7 +28,21 @@ class CollectTests(unittest.TestCase):
         self.assertEqual(entry["theme"], "classical")
         self.assertTrue(entry["demo"].strip())
         self.assertTrue(entry["tagline"])
+        self.assertTrue(entry["plain"])
         self.assertTrue(entry["source_url"].endswith("/hopfield"))
+
+    def test_collect_includes_intro_and_theme_blurbs(self):
+        data = collect(names=["hopfield"])
+        self.assertTrue(data.get("intro"))
+        for tid, meta in data["themes"].items():
+            self.assertIn("blurb", meta, tid)
+            self.assertTrue(meta["blurb"], tid)
+
+    def test_plain_falls_back_to_tagline_when_undescribed(self):
+        # An unknown lab name still yields a non-empty plain field (the tagline),
+        # so the frontend never shows a blank description.
+        from labs._showcase.descriptions import plain_for
+        self.assertEqual(plain_for("nope", fallback="a tagline"), "a tagline")
 
 
 class BuildTests(unittest.TestCase):
@@ -55,3 +70,10 @@ class CoverageTests(unittest.TestCase):
         discovered = set(discover_labs())
         stale = set(THEME_MAP) - discovered
         self.assertEqual(stale, set(), f"stale theme-map entries (no such lab): {stale}")
+
+    def test_descriptions_have_no_stale_entries(self):
+        # Same contract for plain-English blurbs: undescribed labs fall back to
+        # the tagline, but a blurb keyed to a non-existent lab is a typo.
+        discovered = set(discover_labs())
+        stale = set(LAB_BLURBS) - discovered
+        self.assertEqual(stale, set(), f"stale description entries (no such lab): {stale}")

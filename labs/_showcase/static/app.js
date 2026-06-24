@@ -30,9 +30,12 @@ function renderLauncher() {
   const q = query.toLowerCase();
   const labs = DATA.labs.filter((l) => {
     const okTheme = activeTheme === "all" || l.theme === activeTheme;
-    const okQ = !q || l.name.includes(q) || l.tagline.toLowerCase().includes(q);
+    const okQ = !q || l.name.includes(q) ||
+      (l.plain || "").toLowerCase().includes(q) || l.tagline.toLowerCase().includes(q);
     return okTheme && okQ;
   });
+
+  const themeBlurb = activeTheme !== "all" && themes[activeTheme] ? themes[activeTheme].blurb : "";
 
   const chips = [`<button class="chip${activeTheme === "all" ? " on" : ""}" data-t="all">all</button>`]
     .concat(Object.entries(themes).map(([id, t]) =>
@@ -45,18 +48,20 @@ function renderLauncher() {
     return `<a class="card" href="#/${encodeURIComponent(l.name)}" style="--accent:${t.accent}">
         <div class="card-id">[${n}]</div>
         <div class="card-name">${esc(l.name)}</div>
-        <div class="card-tag">${esc(l.tagline)}</div>
+        <div class="card-tag">${esc(l.plain)}</div>
       </a>`;
   }).join("");
 
   app.innerHTML = `
     <header class="masthead">
       <pre class="banner">//// the lab terminal ////</pre>
-      <p class="sub">${DATA.labs.length} working AI-agent MVPs · offline · stdlib-only · from scratch</p>
+      <p class="intro">${esc(DATA.intro || "")}</p>
+      <p class="sub">${DATA.labs.length} exhibits · offline · stdlib-only · from scratch</p>
     </header>
     <div class="toolbar">
       <input id="search" class="search" placeholder="/ search labs…" value="${esc(query)}">
       <div class="chips">${chips}</div>
+      ${themeBlurb ? `<p class="theme-blurb">${esc(themeBlurb)}</p>` : ""}
     </div>
     <div class="grid">${cards || '<p class="empty">no labs match.</p>'}</div>`;
 
@@ -88,13 +93,16 @@ function renderSession(lab) {
       </div>
       <div class="meta">
         <span class="badge">${esc(t.label)}</span>
-        <span class="tag">${esc(lab.tagline)}</span>
+        <span class="tag">${esc(lab.plain)}</span>
       </div>
       <div class="term">
         <div class="cmd">$ python -m labs.${esc(lab.name)}.demo</div>
         <pre class="out" id="out"></pre>
       </div>
-      <div class="cap">inspired by ${(lab.inspired_by && esc(lab.inspired_by)) || "—"}</div>
+      <div class="cap">
+        <div><span class="cap-label">technically</span> ${esc(lab.tagline)}</div>
+        <div><span class="cap-label">inspired by</span> ${(lab.inspired_by && esc(lab.inspired_by)) || "—"}</div>
+      </div>
       <nav class="sessnav">
         <a href="#/${encodeURIComponent(prev.name)}">‹ ${esc(prev.name)}</a>
         <button id="replay">▶ replay</button>

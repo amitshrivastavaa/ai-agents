@@ -27,6 +27,12 @@ class StaticAssetTests(unittest.TestCase):
         self.assertIn("renderLauncher", js)
         self.assertIn("renderSession", js)
 
+    def test_app_js_renders_plain_english_layer(self):
+        js = (STATIC / "app.js").read_text()
+        self.assertIn("DATA.intro", js)      # launcher intro
+        self.assertIn("l.plain", js)         # plain description on cards
+        self.assertIn("themeBlurb", js)      # per-theme room blurb
+
     def test_style_uses_accent_variable(self):
         css = (STATIC / "style.css").read_text()
         self.assertIn("--accent", css)
