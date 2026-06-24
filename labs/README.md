@@ -40,6 +40,8 @@ install), and upgrades to a real model when `ANTHROPIC_API_KEY` is set.
 | [`diffusion`](diffusion/) | A score-based diffusion generative model: annealed Langevin sampling with the analytic mixture-of-Gaussians score turns pure noise into a ring, spiral, or clusters — the real sampler, no training. | diffusion models / score-based generation |
 | [`planner`](planner/) | A classical STRIPS planner: facts, actions with add/delete effects, and BFS/A* state-space search that solves the Sussman anomaly optimally. Renders block towers + the plan in ASCII. | symbolic planning / GOFAI |
 | [`speculative`](speculative/) | Speculative decoding from scratch: a cheap bigram **draft** guesses k tokens, an accurate 4-gram **target** verifies a whole block per call — provably **lossless** (output identical to pure target greedy) at ~2.2× fewer target calls. | fast LLM serving (Leviathan/Chen 2023) |
+| [`ssm`](ssm/) | A selective state-space model (Mamba) from scratch: the SSM **duality** (a recurrence that is exactly a convolution, to 1e-16) and **selectivity** — an input-dependent timestep solves the sample-and-hold/selective-copy task the *best possible* fixed-dynamics SSM provably cannot. The linear-time rival to attention. | state-space models / Mamba |
+| [`bandits`](bandits/) | The multi-armed bandit and exploration vs exploitation: random / greedy / ε-greedy / UCB1 / Thompson scored by regret. The dumb policies stay **linear**; UCB1 and Thompson go **sublinear** (Thompson lands ~95% of pulls on the best arm). The stateless root of RL. | multi-armed bandits (UCB / Thompson) |
 
 _(more landing through the night — see [`PROGRESS.md`](PROGRESS.md))_
 
