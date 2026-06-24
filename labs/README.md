@@ -23,6 +23,7 @@ install), and upgrades to a real model when `ANTHROPIC_API_KEY` is set.
 | [`world_model`](world_model/) | Three agents (reflex / Monte-Carlo rollout / search) plan over one gridworld model — an honest reflex→sampling→search spectrum where only full search clears every hazard maze. | world models + reasoning / planning |
 | [`evo_arena`](evo_arena/) | The evolution of cooperation in the Iterated Prisoner's Dilemma: an Axelrod tournament, replicator dynamics (defection goes extinct), and a memory-1 GA where cooperation emerges or collapses by seed. | multi-agent evolution (CORAL/SAGE); Axelrod |
 | [`tree_of_thoughts`](tree_of_thoughts/) | Deliberate reasoning as search on the Game of 24: beam search over partial "thoughts" scored by a Monte-Carlo value, solving 8/8 (incl. the hard 3,3,8,8) with ~2× fewer states than brute force. | test-time compute / Tree-of-Thoughts |
+| [`constitutional`](constitutional/) | A self-critique & revision loop: draft → critique against a constitution of principles → revise → repeat until clean. Each principle has a rule-checkable detector + deterministic fix, so it converges offline. | Constitutional AI / Self-Refine |
 
 _(more landing through the night — see [`PROGRESS.md`](PROGRESS.md))_
 
