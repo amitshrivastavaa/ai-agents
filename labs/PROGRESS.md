@@ -48,6 +48,10 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 - PR #18 merged: #38 `kmeans` (k-means clustering / k-means++) → `main`.
 - PR #19 merged: #39 `conformal` (distribution-free prediction intervals) → `main`.
 - PR #20 merged: #40 `tree` (CART decision tree) → `main`.  ← 40 MVPs milestone
+- PR #21 merged: SHOWCASE — static GitHub Pages gallery (`tools/build_site.py` →
+  `docs/index.html`, `pages.yml` auto-deploy) + `python -m labs` launcher. Live at
+  https://amitshrivastavaa.github.io/ai-agents/ once Pages source is set to
+  "GitHub Actions" in repo settings (one-time, user must toggle).
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
