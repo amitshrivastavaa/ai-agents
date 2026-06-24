@@ -51,6 +51,8 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 
 | 15 | `morphogenesis` | Gray-Scott reaction-diffusion: self-organizing + self-healing Turing patterns (morphogenesis → Growing Neural CA), shaded ASCII | ✅ done — 7 tests green, regrows after damage |
 
+| 16 | `bpe` | a from-scratch byte-level BPE tokenizer (GPT-style): train merges, encode/decode with exact round-trip, compression scales w/ vocab | ✅ done — 12 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Idea sources (second research round, June 2026)
@@ -92,8 +94,8 @@ python -m unittest discover -s labs -t . -p 'test_*.py'   # all lab tests
   regression (evolve a formula, verified). Then a fresh WebSearch round.
   Unbuilt backlog: AlphaEvolve-style program/formula search w/ a verifier,
   neuroevolution of a tiny controller (can reuse micrograd net as the policy),
-  MoE router, diffusion-from-scratch, speculative decoding, BPE tokenizer,
-  LLM-debate-for-truth, PDDL/STRIPS planner.
+  MoE router, diffusion-from-scratch, speculative decoding,
+  LLM-debate-for-truth, PDDL/STRIPS planner. (#16 bpe DONE.)
 - After each: run its tests + `unittest discover -s labs -t .`, update this table,
   commit, push.
 - If you hit a usage/time limit: stop, and the loop will re-check on its

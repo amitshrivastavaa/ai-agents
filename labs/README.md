@@ -28,6 +28,7 @@ install), and upgrades to a real model when `ANTHROPIC_API_KEY` is set.
 | [`hopfield`](hopfield/) | Associative memory: store patterns as energy attractors and recover them from corrupted or half-erased cues. Classic Hebbian + modern dense (softmax ≈ attention); the modern net degrades far more gracefully. | Hopfield networks (Nobel 2024) |
 | [`micrograd`](micrograd/) | A from-scratch reverse-mode autograd engine + a tiny MLP that genuinely learns (XOR 100%, circles, sin(x)) via backprop and SGD. Gradients verified against numerical. No numpy. | "build ML from scratch" (Karpathy micrograd) |
 | [`morphogenesis`](morphogenesis/) | Gray-Scott reaction-diffusion: from a seed the field self-organizes into spots/mazes/dividing cells, and regrows after you wipe a hole — self-healing patterns in shaded ASCII. | Turing morphogenesis → Growing Neural CA |
+| [`bpe`](bpe/) | A from-scratch byte-level BPE tokenizer (GPT-style): trains merges into subwords, compresses text ~2×, and round-trips *any* input exactly — emoji included. | LLM tokenization (Karpathy minbpe) |
 
 _(more landing through the night — see [`PROGRESS.md`](PROGRESS.md))_
 
