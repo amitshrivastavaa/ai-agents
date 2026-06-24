@@ -42,7 +42,23 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 | 8 | `world_model` | "think before you act" planners (reflex/rollout/search) over a gridworld model — honest reflex→sampling→search spectrum | ✅ done — 10 tests green |
 | 9 | `evo_arena` | co-evolving IPD strategies (Axelrod tournament + replicator dynamics + memory-1 GA) — cooperation emerges or collapses (CORAL/SAGE evolution) | ✅ done — 12 tests green |
 
+| 10 | `tree_of_thoughts` | deliberate reasoning search on Game of 24 — beam over "thoughts" w/ Monte-Carlo value, vs random/brute; test-time compute | ✅ done — 10 tests green, solves 8/8 incl. (3,3,8,8) |
+| 11 | `constitutional` | self-critique & revision loop: draft → critique vs a constitution → revise until clean (Constitutional AI / Self-Refine) | ⏳ next |
+| 12 | `swarm` | Ant Colony Optimization for TSP — pheromone trails, emergent shortest tour (swarm intelligence; ANTS 2026) | ⏳ backlog |
+| 13 | `hopfield` | associative memory: store patterns, recover from corrupted/partial input (energy-based attractors; Nobel 2024) | ⏳ backlog |
+
 (Append new ideas here as they're found. Keep the table honest.)
+
+### Idea sources (second research round, June 2026)
+- Test-time compute / **Tree-of-Thoughts** reasoning is THE theme (o1-style "think
+  before answering"). → `tree_of_thoughts` (#10).
+- **Constitutional AI / self-critique** loops (Critique Fine-Tuning, +15% on hard
+  tasks). → `constitutional` (#11).
+- **Swarm intelligence / ACO** (ANTS 2026, Darmstadt, June 8-10). → `swarm` (#12).
+- **Hopfield / dense associative memory** (Nobel 2024, renewed interest). →
+  `hopfield` (#13).
+- AlphaEvolve (evolutionary search + a verifier "clock") & Agent0 (adversarial
+  co-evolution) — partly covered by prompt_evolver/evo_arena; revisit later.
 
 ### Idea sources (June 2026 research)
 - Multi-agent **evolution** is hot: CORAL (autonomous multi-agent evolution on
@@ -64,8 +80,8 @@ python -m unittest discover -s labs -t . -p 'test_*.py'   # all lab tests
 
 ## Next steps (for the next wakeup)
 
-- #8 world_model and #9 evo_arena DONE. Next: research a fresh batch of wild
-  ideas (web search) and append #10+ to the table, then build them.
+- #10 tree_of_thoughts DONE. Next: build #11 constitutional, #12 swarm,
+  #13 hopfield. Research again once the queue drains.
 - After each: run its tests + `unittest discover -s labs -t .`, update this table,
   commit, push.
 - If you hit a usage/time limit: stop, and the loop will re-check on its
