@@ -108,6 +108,8 @@ PRs can't be reused) and merge it.
 
 | 34 | `hmm` | Hidden Markov Models from scratch (log-space Viterbi + forward + forward-backward), shown on the dishonest casino: recovers which die (fair/loaded) was in play from rolls alone (~80-95% acc) + posterior confidence; PROVEN correct vs brute-force enumeration of all paths; fills the sequence-DP gap | ✅ done — 8 tests green |
 
+| 35 | `pagerank` | PageRank by power iteration (the eigenvector that ranked the web): converges to the dominant eigenvector of the Google matrix, handles dangling nodes + teleport; PROVEN = the random surfer's stationary distribution (Monte-Carlo cross-check matches to ~0.001); damping dial; pairs with repo_cartographer | ✅ done — 8 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Deferred / lessons
