@@ -32,6 +32,7 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 - PR #3 merged: MVPs #0–19 + GitHub Actions CI (`.github/workflows/labs-ci.yml`,
   runs all tests + demo smoke tests, stdlib-only) → `main`.
 - PR #4 merged: #20 `qlearning` + #21 `attention` → `main`.
+- PR #5 merged: #22 `rag` + #23 `diffusion` → `main`.
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
