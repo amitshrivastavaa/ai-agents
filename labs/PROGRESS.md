@@ -41,6 +41,7 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 - PR #11 merged: #31 `kalman` (Kalman filter / state estimation) → `main`.
 - PR #12 merged: #32 `lsh` (locality-sensitive hashing / ANN search) → `main`.
 - PR #13 merged: #33 `gp` (Gaussian Process regression) → `main`.
+- PR #14 merged: #34 `hmm` (Hidden Markov Models / Viterbi) → `main`.
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
@@ -106,6 +107,8 @@ PRs can't be reused) and merge it.
 | 33 | `gp` | Gaussian Process regression from scratch (RBF kernel + Cholesky solve, no training): closed-form posterior mean+variance gives CALIBRATED uncertainty — band pinches to noise floor at data, balloons to prior in gaps/extrapolation; longer lengthscale fills gaps more confidently; complements kalman (#31) | ✅ done — 10 tests green |
 
 | 34 | `hmm` | Hidden Markov Models from scratch (log-space Viterbi + forward + forward-backward), shown on the dishonest casino: recovers which die (fair/loaded) was in play from rolls alone (~80-95% acc) + posterior confidence; PROVEN correct vs brute-force enumeration of all paths; fills the sequence-DP gap | ✅ done — 8 tests green |
+
+| 35 | `pagerank` | PageRank by power iteration (the eigenvector that ranked the web): converges to the dominant eigenvector of the Google matrix, handles dangling nodes + teleport; PROVEN = the random surfer's stationary distribution (Monte-Carlo cross-check matches to ~0.001); damping dial; pairs with repo_cartographer | ✅ done — 8 tests green |
 
 (Append new ideas here as they're found. Keep the table honest.)
 
