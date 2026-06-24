@@ -37,6 +37,7 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 - PR #7 merged: #26 `ssm` (Mamba) + #27 `bandits` → `main`.
 - PR #8 merged: #28 `grpo` (reasoning-model RL) → `main`.
 - PR #9 merged: #29 `flow` (flow matching / rectified flow) → `main`.
+- PR #10 merged: #30 `transformer` (decoder block + induction circuit) → `main`.
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
@@ -94,6 +95,8 @@ PRs can't be reused) and merge it.
 | 29 | `flow` | flow matching / rectified flow from scratch (the engine of Stable Diffusion 3 & Flux): analytic marginal velocity field v=(ŷ−x)/(1−t), integrate a deterministic ODE that flows N(0,I) onto ring/clusters/grid/moons/spiral in ~16 steps, 100% mode coverage, near-straight paths; pairs with diffusion (#23) | ✅ done — 10 tests green |
 
 | 30 | `transformer` | a decoder block from scratch (LayerNorm + causal MHA + MLP + residual, verified causal/identity) AND the 2-layer induction circuit (prev-token head → induction head) that does in-context learning: 100% on repeated patterns vs 0% for a 1-layer ablation; caps bpe→micrograd→attention→transformer | ✅ done — 13 tests green |
+
+| 31 | `kalman` | the Kalman filter from scratch (own 40-line matrix algebra incl. Gauss-Jordan inverse): predict/update with the Kalman gain tracks a noisy 2-D object at ~40-50% lower RMSE than the sensor, beats a moving-average smoother, recovers UNMEASURED velocity, gain → steady state; fills the state-estimation gap | ✅ done — 9 tests green |
 
 (Append new ideas here as they're found. Keep the table honest.)
 
