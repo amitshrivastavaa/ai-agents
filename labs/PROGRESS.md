@@ -29,11 +29,12 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 
 ## Shipped to main
 
-PR #3 (`claude/vibrant-carson-s0hqd6` → `main`) was **merged** — MVPs #0–19 +
-GitHub Actions CI (`.github/workflows/labs-ci.yml`, runs all tests + demo smoke
-tests, stdlib-only) are on `main`. The user authorized creating/merging PRs and
-deploying. Future work keeps going on this branch; open a **follow-up PR** to
-merge later batches (the closed PR #3 can't be reused). CI is the "deploy".
+- PR #3 merged: MVPs #0–19 + GitHub Actions CI (`.github/workflows/labs-ci.yml`,
+  runs all tests + demo smoke tests, stdlib-only) → `main`.
+- PR #4 merged: #20 `qlearning` + #21 `attention` → `main`.
+The user authorized creating/merging PRs and deploying. CI is the "deploy".
+Keep building on this branch; open a **follow-up PR** for each new batch (closed
+PRs can't be reused) and merge it.
 
 ## Status board
 
@@ -70,6 +71,10 @@ merge later batches (the closed PR #3 can't be reused). CI is the "deploy".
 | 20 | `qlearning` | tabular Q-learning on a gridworld (cliff-walk/maze/rooms): learns the optimal policy from reward, matches value iteration; policy arrows + value heatmap | ✅ done — 9 tests green |
 
 | 21 | `attention` | scaled dot-product attention from scratch + a hand-wired induction head doing in-context next-token prediction (no training); caps the LLM-from-scratch thread | ✅ done — 9 tests green |
+
+| 22 | `rag` | retrieval-augmented generation from scratch: TF-IDF index + top-k retrieval + grounded extractive answers with citations + abstention (no hallucination) | ✅ done — 9 tests green |
+
+| 23 | `diffusion` | score-based diffusion generative model from scratch: annealed Langevin sampling with the analytic GMM score turns noise into a ring/spiral/clusters (no training) | ✅ done — 7 tests green |
 
 (Append new ideas here as they're found. Keep the table honest.)
 
