@@ -72,6 +72,8 @@ PRs can't be reused) and merge it.
 
 | 21 | `attention` | scaled dot-product attention from scratch + a hand-wired induction head doing in-context next-token prediction (no training); caps the LLM-from-scratch thread | ✅ done — 9 tests green |
 
+| 22 | `rag` | retrieval-augmented generation from scratch: TF-IDF index + top-k retrieval + grounded extractive answers with citations + abstention (no hallucination) | ✅ done — 9 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Idea sources (second research round, June 2026)
