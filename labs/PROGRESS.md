@@ -55,6 +55,7 @@ into `labs/`, continuously through the night. Go wild — but ship things that
   NOTE: regenerate `docs/index.html` (`python tools/build_site.py`) when adding an
   MVP so the committed snapshot stays current (the workflow also rebuilds on push).
 - PR #22 merged: #41 `forest` (random forest, ensembles #40 tree) → `main`.
+- PR #23 merged: #42 `boosting` (gradient boosting / XGBoost engine) → `main`.
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
