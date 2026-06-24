@@ -34,6 +34,8 @@ install), and upgrades to a real model when `ANTHROPIC_API_KEY` is set.
 | [`neuroevolution`](neuroevolution/) | Gradient-free RL: evolve a tiny neural-net controller to balance CartPole. Random nets last ~10 steps; the evolved one balances the full 500 and generalizes. ASCII cart view. | evolution strategies / self-improving agents |
 | [`moe`](moe/) | A mixture of experts: a Gaussian-gated router sends each input to a specializing expert; trained by EM, a few experts beat a single model 14× on piecewise data, load-balanced. | Mixture-of-Experts (Jacobs 1991 → Mixtral) |
 | [`symbolic_regression`](symbolic_regression/) | Genetic programming over expression trees rediscovers the *equation* behind sampled data (`x*x-2`, `x*sin(x)`, `(x*x-1)*x`) — verifier-guided evolutionary search. | evolutionary program search (AlphaEvolve) |
+| [`qlearning`](qlearning/) | Tabular Q-learning learns a gridworld policy from reward alone — solves the classic cliff-walk optimally, matches value iteration; renders policy arrows + a value heatmap. | reinforcement learning (Sutton & Barto) |
+| [`attention`](attention/) | Scaled dot-product attention from scratch + a hand-wired induction head that does in-context next-token prediction (`A B C A B C A → B`) with no training. | transformers / induction heads (interpretability) |
 
 _(more landing through the night — see [`PROGRESS.md`](PROGRESS.md))_
 

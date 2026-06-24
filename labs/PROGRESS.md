@@ -27,6 +27,14 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 6. Do **not** open a PR (not requested). Do **not** touch the existing
    `agents/` pharma platform code.
 
+## Shipped to main
+
+PR #3 (`claude/vibrant-carson-s0hqd6` → `main`) was **merged** — MVPs #0–19 +
+GitHub Actions CI (`.github/workflows/labs-ci.yml`, runs all tests + demo smoke
+tests, stdlib-only) are on `main`. The user authorized creating/merging PRs and
+deploying. Future work keeps going on this branch; open a **follow-up PR** to
+merge later batches (the closed PR #3 can't be reused). CI is the "deploy".
+
 ## Status board
 
 | # | MVP | Idea / inspiration | Status |
@@ -58,6 +66,10 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 | 18 | `moe` | mixture of experts: Gaussian-gated router + EM-specialized linear experts beat a single model 14× on piecewise data; load-balanced (Mixtral lineage) | ✅ done — 10 tests green |
 
 | 19 | `symbolic_regression` | genetic programming over expression trees rediscovers formulas from data (x*x-2, x*sin(x), x³-x) — verifier-guided evolutionary search (AlphaEvolve) | ✅ done — 11 tests green |
+
+| 20 | `qlearning` | tabular Q-learning on a gridworld (cliff-walk/maze/rooms): learns the optimal policy from reward, matches value iteration; policy arrows + value heatmap | ✅ done — 9 tests green |
+
+| 21 | `attention` | scaled dot-product attention from scratch + a hand-wired induction head doing in-context next-token prediction (no training); caps the LLM-from-scratch thread | ✅ done — 9 tests green |
 
 (Append new ideas here as they're found. Keep the table honest.)
 
