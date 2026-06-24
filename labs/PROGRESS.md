@@ -39,6 +39,7 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 - PR #9 merged: #29 `flow` (flow matching / rectified flow) → `main`.
 - PR #10 merged: #30 `transformer` (decoder block + induction circuit) → `main`.
 - PR #11 merged: #31 `kalman` (Kalman filter / state estimation) → `main`.
+- PR #12 merged: #32 `lsh` (locality-sensitive hashing / ANN search) → `main`.
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
