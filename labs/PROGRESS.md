@@ -90,6 +90,8 @@ PRs can't be reused) and merge it.
 
 | 28 | `grpo` | Group Relative Policy Optimization from scratch (the RL behind reasoning models / DeepSeek-R1, RLVR): softmax policy + group-mean-baseline advantage solves a verifiable-reward task 100%, and converges ~2.5× faster than baseline-free REINFORCE; policy-gradient capstone of the RL thread (bandits→qlearning→grpo) | ✅ done — 9 tests green |
 
+| 29 | `flow` | flow matching / rectified flow from scratch (the engine of Stable Diffusion 3 & Flux): analytic marginal velocity field v=(ŷ−x)/(1−t), integrate a deterministic ODE that flows N(0,I) onto ring/clusters/grid/moons/spiral in ~16 steps, 100% mode coverage, near-straight paths; pairs with diffusion (#23) | ✅ done — 10 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Idea sources (second research round, June 2026)
