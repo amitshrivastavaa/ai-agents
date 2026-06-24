@@ -1,0 +1,34 @@
+name: labs-ci
+
+# The labs/ research MVPs are offline and standard-library only, so CI needs no
+# dependencies, no API key, and no network — it just runs every lab's tests.
+
+on:
+  push:
+    branches: [main, "claude/**"]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run the labs test suite (stdlib only, no deps, no API key)
+        run: python -m unittest discover -s labs -t . -p 'test_*.py'
+      - name: Smoke-test every lab demo
+        run: |
+          set -e
+          for demo in $(python - <<'PY'
+import pkgutil, labs
+for m in pkgutil.iter_modules(labs.__path__):
+    if m.ispkg and m.name != "_kernel":
+        print(f"labs.{m.name}.demo")
+PY
+          ); do
+            echo "── $demo ──"
+            python -m "$demo" > /dev/null && echo "ok" || (echo "FAILED: $demo"; exit 1)
+          done

@@ -1,5 +1,7 @@
 # labs/ — a research lab of wild AI-agent MVPs
 
+[![labs-ci](https://github.com/amitshrivastavaa/ai-agents/actions/workflows/labs-ci.yml/badge.svg)](https://github.com/amitshrivastavaa/ai-agents/actions/workflows/labs-ci.yml)
+
 An overnight, autonomously-built collection of small but *working* MVPs, each
 inspired by a trending idea in the AI-agent space. Every MVP is self-contained,
 runs **offline with the Python standard library alone** (no API key, nothing to
