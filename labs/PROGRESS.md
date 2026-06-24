@@ -39,8 +39,8 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 | 5 | `tiny_town` | Smallville-style generative-agent simulation (reuses agent_memory!) | ✅ done — 11 tests green |
 | 6 | `agent_os` | micro agent-OS: scheduler + task queue + blackboard (AutoGPT platform) | ✅ done — 12 tests green |
 | 7 | `repo_cartographer` | map a Python repo into a dependency/knowledge graph (AST) + answer "what depends on X" | ✅ done — 12 tests green, maps the lab itself |
-| 8 | `world_model` | a "think before you act" planner: build an internal model of a small env, simulate candidate action sequences via lookahead/MCTS, pick the best predicted plan (world-models + reasoning trend) | ⏳ next |
-| 9 | `evo_arena` | a population of agent strategies that **co-evolve** on iterated games (Prisoner's Dilemma / Axelrod), with shared experience — watch cooperation emerge (CORAL/SAGE multi-agent evolution, June 2026) | ⏳ backlog |
+| 8 | `world_model` | "think before you act" planners (reflex/rollout/search) over a gridworld model — honest reflex→sampling→search spectrum | ✅ done — 10 tests green |
+| 9 | `evo_arena` | a population of agent strategies that **co-evolve** on iterated games (Prisoner's Dilemma / Axelrod), with shared experience — watch cooperation emerge (CORAL/SAGE multi-agent evolution, June 2026) | ⏳ next |
 
 (Append new ideas here as they're found. Keep the table honest.)
 
@@ -64,7 +64,7 @@ python -m unittest discover -s labs -t . -p 'test_*.py'   # all lab tests
 
 ## Next steps (for the next wakeup)
 
-- Build MVP #8 `world_model`, then #9 `evo_arena`. Research fresh ideas after.
+- Build MVP #9 `evo_arena`. Research fresh ideas after.
 - After each: run its tests + `unittest discover -s labs -t .`, update this table,
   commit, push.
 - If you hit a usage/time limit: stop, and the loop will re-check on its

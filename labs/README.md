@@ -20,6 +20,7 @@ install), and upgrades to a real model when `ANTHROPIC_API_KEY` is set.
 | [`tiny_town`](tiny_town/) | A tiny generative-agent town: residents with traits, routines, and memories meet, converse, and form emergent friendships/rivalries over days. Each resident reuses `agent_memory`. | Stanford Generative Agents (Smallville) |
 | [`agent_os`](agent_os/) | A micro agent runtime: a dependency-aware priority scheduler with parallel workers, a shared blackboard, runtime task spawning, retries, and downstream cancellation. | AutoGPT-style agent platforms |
 | [`repo_cartographer`](repo_cartographer/) | Maps a Python codebase into a dependency graph via `ast` and answers impact ("what breaks if I change X"), centrality, cycles, and orphans. Maps the lab itself. | code-RAG / repo understanding |
+| [`world_model`](world_model/) | Three agents (reflex / Monte-Carlo rollout / search) plan over one gridworld model — an honest reflex→sampling→search spectrum where only full search clears every hazard maze. | world models + reasoning / planning |
 
 _(more landing through the night — see [`PROGRESS.md`](PROGRESS.md))_
 
