@@ -46,6 +46,7 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 - PR #16 merged: #36 `sketch` (Count-Min + HyperLogLog streaming) → `main`.
 - PR #17 merged: #37 `pca` (Principal Component Analysis) → `main`.
 - PR #18 merged: #38 `kmeans` (k-means clustering / k-means++) → `main`.
+- PR #19 merged: #39 `conformal` (distribution-free prediction intervals) → `main`.
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
@@ -121,6 +122,8 @@ PRs can't be reused) and merge it.
 | 38 | `kmeans` | k-means clustering (Lloyd) + k-means++ init + elbow method: inertia monotonically decreases, recovers separated blobs (~99% purity), k-means++ crushes random init (mean inertia 265 vs 352, far better worst-case), elbow finds true k; unsupervised companion to pca | ✅ done — 7 tests green |
 
 | 39 | `conformal` | conformal prediction (distribution-free uncertainty, trending): split-conformal wraps any model — calibration-set residual quantile gives intervals with PROVEN ≥1−α coverage; empirical coverage lands exactly on 0.95/0.90/0.80 across 40 splits regardless of (heteroscedastic) noise; adaptive variant widens with noise; assumption-light cousin of gp | ✅ done — 7 tests green |
+
+| 40 | `tree` | CART decision tree from scratch (Gini/entropy + greedy splits): axis-aligned cuts carve non-linear boundaries — 100% on separable blobs, ~94% on moons (ASCII decision-boundary staircase), solves XOR a linear model can't, depth sweep shows the overfitting gap; building block of RF/XGBoost | ✅ done — 9 tests green |
 
 (Append new ideas here as they're found. Keep the table honest.)
 
