@@ -45,6 +45,7 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 - PR #15 merged: #35 `pagerank` (power iteration / graph centrality) → `main`.
 - PR #16 merged: #36 `sketch` (Count-Min + HyperLogLog streaming) → `main`.
 - PR #17 merged: #37 `pca` (Principal Component Analysis) → `main`.
+- PR #18 merged: #38 `kmeans` (k-means clustering / k-means++) → `main`.
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
