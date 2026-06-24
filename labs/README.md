@@ -63,6 +63,20 @@ python -m labs.agent_swarm.demo
 python -m unittest discover -s labs -t . -p 'test_*.py'
 ```
 
+## The showcase site ("the lab terminal")
+
+Build a deployable, terminal-aesthetic static site that renders every lab's
+demo output — a boot-menu launcher plus a per-lab session view:
+
+```sh
+python -m labs._showcase.build --out site
+python -m http.server -d site 8000   # then open http://localhost:8000
+```
+
+It auto-discovers every lab with a `demo.py`, so the site grows as new MVPs
+land. On every push to `main`, `.github/workflows/showcase.yml` builds and
+deploys it to GitHub Pages.
+
 ## Design principles
 
 - **Offline-first.** If it needs a key to run, it's not done. The real-model
