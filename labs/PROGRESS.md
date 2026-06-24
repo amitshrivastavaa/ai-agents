@@ -44,6 +44,7 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 - PR #14 merged: #34 `hmm` (Hidden Markov Models / Viterbi) → `main`.
 - PR #15 merged: #35 `pagerank` (power iteration / graph centrality) → `main`.
 - PR #16 merged: #36 `sketch` (Count-Min + HyperLogLog streaming) → `main`.
+- PR #17 merged: #37 `pca` (Principal Component Analysis) → `main`.
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
@@ -115,6 +116,8 @@ PRs can't be reused) and merge it.
 | 36 | `sketch` | streaming probabilistic data structures: Count-Min Sketch (approx frequencies, never underestimates, overshoot ≤ ε·N, heavy hitters) + HyperLogLog (cardinality via max leading-zeros, ~1-3% error in 4KB regardless of count); fixed sublinear memory; the backbone of real-time analytics / n-gram counting at scale | ✅ done — 11 tests green |
 
 | 37 | `pca` | Principal Component Analysis from scratch (power iteration + deflation, no numpy): recovers known axes exactly (PC1·true=1.000), components orthonormal, optimal linear compression; DISCOVERS true dimensionality of low-rank data (reconstruction elbow at the real rank); fills the dim-reduction gap, pairs with lsh/gp | ✅ done — 9 tests green |
+
+| 38 | `kmeans` | k-means clustering (Lloyd) + k-means++ init + elbow method: inertia monotonically decreases, recovers separated blobs (~99% purity), k-means++ crushes random init (mean inertia 265 vs 352, far better worst-case), elbow finds true k; unsupervised companion to pca | ✅ done — 7 tests green |
 
 (Append new ideas here as they're found. Keep the table honest.)
 
