@@ -30,6 +30,7 @@ install), and upgrades to a real model when `ANTHROPIC_API_KEY` is set.
 | [`morphogenesis`](morphogenesis/) | Gray-Scott reaction-diffusion: from a seed the field self-organizes into spots/mazes/dividing cells, and regrows after you wipe a hole — self-healing patterns in shaded ASCII. | Turing morphogenesis → Growing Neural CA |
 | [`bpe`](bpe/) | A from-scratch byte-level BPE tokenizer (GPT-style): trains merges into subwords, compresses text ~2×, and round-trips *any* input exactly — emoji included. | LLM tokenization (Karpathy minbpe) |
 | [`neuroevolution`](neuroevolution/) | Gradient-free RL: evolve a tiny neural-net controller to balance CartPole. Random nets last ~10 steps; the evolved one balances the full 500 and generalizes. ASCII cart view. | evolution strategies / self-improving agents |
+| [`moe`](moe/) | A mixture of experts: a Gaussian-gated router sends each input to a specializing expert; trained by EM, a few experts beat a single model 14× on piecewise data, load-balanced. | Mixture-of-Experts (Jacobs 1991 → Mixtral) |
 
 _(more landing through the night — see [`PROGRESS.md`](PROGRESS.md))_
 

@@ -55,6 +55,8 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 
 | 17 | `neuroevolution` | gradient-free RL: evolve a tiny neural-net controller to balance CartPole (random ~10 steps → evolved 500, generalizes), ASCII cart | ✅ done — 9 tests green |
 
+| 18 | `moe` | mixture of experts: Gaussian-gated router + EM-specialized linear experts beat a single model 14× on piecewise data; load-balanced (Mixtral lineage) | ✅ done — 10 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Idea sources (second research round, June 2026)
@@ -95,8 +97,8 @@ python -m unittest discover -s labs -t . -p 'test_*.py'   # all lab tests
   balancing), PDDL/STRIPS planner (symbolic AI), AlphaEvolve-style symbolic
   regression (evolve a formula, verified). Then a fresh WebSearch round.
   Unbuilt backlog: AlphaEvolve-style program/formula search w/ a verifier,
-  MoE router, diffusion-from-scratch, speculative decoding,
-  LLM-debate-for-truth, PDDL/STRIPS planner. (#16 bpe, #17 neuroevolution DONE.)
+  diffusion-from-scratch, speculative decoding, LLM-debate-for-truth,
+  PDDL/STRIPS planner. (#16 bpe, #17 neuroevolution, #18 moe DONE.)
   Consider a fresh WebSearch round soon for newer trends.
 - After each: run its tests + `unittest discover -s labs -t .`, update this table,
   commit, push.
