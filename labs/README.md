@@ -25,6 +25,7 @@ install), and upgrades to a real model when `ANTHROPIC_API_KEY` is set.
 | [`tree_of_thoughts`](tree_of_thoughts/) | Deliberate reasoning as search on the Game of 24: beam search over partial "thoughts" scored by a Monte-Carlo value, solving 8/8 (incl. the hard 3,3,8,8) with ~2× fewer states than brute force. | test-time compute / Tree-of-Thoughts |
 | [`constitutional`](constitutional/) | A self-critique & revision loop: draft → critique against a constitution of principles → revise → repeat until clean. Each principle has a rule-checkable detector + deterministic fix, so it converges offline. | Constitutional AI / Self-Refine |
 | [`swarm`](swarm/) | Ant Colony Optimization for the TSP: simple ants lay pheromone and a near-optimal tour emerges (hits the optimum on solvable instances, beats greedy everywhere), drawn in ASCII. | swarm intelligence / ACO (ANTS 2026) |
+| [`hopfield`](hopfield/) | Associative memory: store patterns as energy attractors and recover them from corrupted or half-erased cues. Classic Hebbian + modern dense (softmax ≈ attention); the modern net degrades far more gracefully. | Hopfield networks (Nobel 2024) |
 
 _(more landing through the night — see [`PROGRESS.md`](PROGRESS.md))_
 
