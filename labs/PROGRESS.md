@@ -52,6 +52,9 @@ into `labs/`, continuously through the night. Go wild — but ship things that
   `docs/index.html`, `pages.yml` auto-deploy) + `python -m labs` launcher. Live at
   https://amitshrivastavaa.github.io/ai-agents/ once Pages source is set to
   "GitHub Actions" in repo settings (one-time, user must toggle).
+  NOTE: regenerate `docs/index.html` (`python tools/build_site.py`) when adding an
+  MVP so the committed snapshot stays current (the workflow also rebuilds on push).
+- PR #22 merged: #41 `forest` (random forest, ensembles #40 tree) → `main`.
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
