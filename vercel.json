@@ -1,0 +1,5 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "python3 -m labs._showcase.build --out site",
+  "outputDirectory": "site"
+}
