@@ -47,6 +47,7 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 - PR #17 merged: #37 `pca` (Principal Component Analysis) → `main`.
 - PR #18 merged: #38 `kmeans` (k-means clustering / k-means++) → `main`.
 - PR #19 merged: #39 `conformal` (distribution-free prediction intervals) → `main`.
+- PR #20 merged: #40 `tree` (CART decision tree) → `main`.  ← 40 MVPs milestone
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
