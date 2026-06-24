@@ -135,6 +135,8 @@ PRs can't be reused) and merge it.
 
 | 41 | `forest` | random forest from scratch (ensemble of #40's DecisionTree): bagging + √d feature subsampling decorrelate the trees; voting beats a single tree (~97.5% vs 94% on moons), variance halves with more trees, out-of-bag score ≈ test (free validation), solves XOR; caps the tree thread | ✅ done — 7 tests green |
 
+| 42 | `boosting` | gradient boosting from scratch (the XGBoost/LightGBM engine): sequential shallow regression trees each fit the residual = negative gradient → gradient descent in function space; 150 depth-2 stumps trace sin(1.5x) (~12× better than one stump), monotone train loss, shrinkage knob; completes tree→forest→boosting | ✅ done — 8 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Deferred / lessons

@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>labs — a research lab of wild AI MVPs</title>
-<meta name="description" content="41 self-contained, from-scratch AI/ML MVPs — each runs offline with the Python standard library alone.">
+<meta name="description" content="42 self-contained, from-scratch AI/ML MVPs — each runs offline with the Python standard library alone.">
 <style>
 :root{--bg:#0d1117;--panel:#161b22;--ink:#e6edf3;--mut:#8b949e;--acc:#58a6ff;
 --term:#0b0e14;--green:#3fb950;--border:#30363d}
@@ -43,15 +43,15 @@ footer{padding:48px 0 80px;color:var(--mut);text-align:center;font-size:14px}
 <div class="wrap">
 <header>
   <h1>labs<span style="color:var(--mut);font-weight:400"> / wild AI MVPs</span></h1>
-  <p class="tag">41 self-contained MVPs, each inspired by a trending idea in AI —
+  <p class="tag">42 self-contained MVPs, each inspired by a trending idea in AI —
   built from scratch, running <b>offline with the Python standard library alone</b>.</p>
   <div class="stats">
-    <div class="stat"><b>41</b><span>MVPs</span></div>
-    <div class="stat"><b>396</b><span>passing tests</span></div>
+    <div class="stat"><b>42</b><span>MVPs</span></div>
+    <div class="stat"><b>404</b><span>passing tests</span></div>
     <div class="stat"><b>0</b><span>dependencies to run</span></div>
     <div class="stat"><b>100%</b><span>deterministic</span></div>
   </div>
-  <div class="toc"><a href="#agent_swarm">agent_swarm</a><a href="#agent_memory">agent_memory</a><a href="#jailbreak_gauntlet">jailbreak_gauntlet</a><a href="#prompt_evolver">prompt_evolver</a><a href="#tiny_town">tiny_town</a><a href="#agent_os">agent_os</a><a href="#repo_cartographer">repo_cartographer</a><a href="#world_model">world_model</a><a href="#evo_arena">evo_arena</a><a href="#tree_of_thoughts">tree_of_thoughts</a><a href="#constitutional">constitutional</a><a href="#swarm">swarm</a><a href="#hopfield">hopfield</a><a href="#micrograd">micrograd</a><a href="#morphogenesis">morphogenesis</a><a href="#bpe">bpe</a><a href="#neuroevolution">neuroevolution</a><a href="#moe">moe</a><a href="#symbolic_regression">symbolic_regression</a><a href="#qlearning">qlearning</a><a href="#attention">attention</a><a href="#rag">rag</a><a href="#diffusion">diffusion</a><a href="#planner">planner</a><a href="#speculative">speculative</a><a href="#ssm">ssm</a><a href="#bandits">bandits</a><a href="#grpo">grpo</a><a href="#flow">flow</a><a href="#transformer">transformer</a><a href="#kalman">kalman</a><a href="#lsh">lsh</a><a href="#gp">gp</a><a href="#hmm">hmm</a><a href="#pagerank">pagerank</a><a href="#sketch">sketch</a><a href="#pca">pca</a><a href="#kmeans">kmeans</a><a href="#conformal">conformal</a><a href="#tree">tree</a><a href="#forest">forest</a></div>
+  <div class="toc"><a href="#agent_swarm">agent_swarm</a><a href="#agent_memory">agent_memory</a><a href="#jailbreak_gauntlet">jailbreak_gauntlet</a><a href="#prompt_evolver">prompt_evolver</a><a href="#tiny_town">tiny_town</a><a href="#agent_os">agent_os</a><a href="#repo_cartographer">repo_cartographer</a><a href="#world_model">world_model</a><a href="#evo_arena">evo_arena</a><a href="#tree_of_thoughts">tree_of_thoughts</a><a href="#constitutional">constitutional</a><a href="#swarm">swarm</a><a href="#hopfield">hopfield</a><a href="#micrograd">micrograd</a><a href="#morphogenesis">morphogenesis</a><a href="#bpe">bpe</a><a href="#neuroevolution">neuroevolution</a><a href="#moe">moe</a><a href="#symbolic_regression">symbolic_regression</a><a href="#qlearning">qlearning</a><a href="#attention">attention</a><a href="#rag">rag</a><a href="#diffusion">diffusion</a><a href="#planner">planner</a><a href="#speculative">speculative</a><a href="#ssm">ssm</a><a href="#bandits">bandits</a><a href="#grpo">grpo</a><a href="#flow">flow</a><a href="#transformer">transformer</a><a href="#kalman">kalman</a><a href="#lsh">lsh</a><a href="#gp">gp</a><a href="#hmm">hmm</a><a href="#pagerank">pagerank</a><a href="#sketch">sketch</a><a href="#pca">pca</a><a href="#kmeans">kmeans</a><a href="#conformal">conformal</a><a href="#tree">tree</a><a href="#forest">forest</a><a href="#boosting">boosting</a></div>
 </header>
 
 <section class="mvp" id="agent_swarm">
@@ -475,10 +475,10 @@ of the failed build — all from the same scheduler.</pre>
     &nbsp;python -m labs.repo_cartographer.demo</div>
     <pre>Mapping &#x27;labs&#x27; — the lab maps itself:
 
-  326 modules · 557 edges · 205 classes · 581 functions · 19348 LOC · 0 cycles
+  334 modules · 571 edges · 209 classes · 591 functions · 19760 LOC · 0 cycles
 
 Most depended-on modules (the load-bearing ones):
-  56 ← labs._kernel
+  57 ← labs._kernel
    9 ← labs.tree.tree
    7 ← labs.qlearning.gridworld
    7 ← labs.tree.data
@@ -486,7 +486,7 @@ Most depended-on modules (the load-bearing ones):
    6 ← labs.diffusion.target
 
 Blast radius if you change the shared kernel text utils:
-  196 modules would be affected.
+  200 modules would be affected.
 
 MVP packages and what each leans on:
   agent_swarm          reuses: labs._kernel, labs._kernel.brain, labs._kernel.text
@@ -2162,6 +2162,55 @@ More trees → less variance. Mean ± std of test accuracy over 10 splits:
    40 trees    98.0%  ± 1.2
 
   And XOR — the single tree&#x27;s nemesis — the forest still nails: 99%.</pre>
+  </div>
+</section>
+
+<section class="mvp" id="boosting">
+  <h2><a href="#boosting">boosting</a><span class="badge">gradient boosting / XGBoost</span></h2>
+  <p class="desc">Gradient boosting from scratch — the XGBoost/LightGBM engine. Shallow regression trees fit <strong>sequentially</strong>, each to the residual (= the negative gradient → gradient descent in function space). 150 depth-2 stumps trace <code>sin(1.5x)</code> ~12× better than one stump; monotone training loss; the shrinkage knob. Completes <code>tree → forest → boosting</code>.</p>
+  <p class="run">run it&nbsp; <code>python -m labs.boosting.demo</code></p>
+  <div class="term">
+    <div class="bar"><span class="dot" style="background:#ff5f56"></span>
+    <span class="dot" style="background:#ffbd2e"></span>
+    <span class="dot" style="background:#27c93f"></span>
+    &nbsp;python -m labs.boosting.demo</div>
+    <pre>Gradient boosting — the engine behind XGBoost / LightGBM.
+
+Each new tree fits the *residual* (where the ensemble is still wrong) —
+gradient descent in function space. 150 shallow stumps, composed:
+
+  · = true sin(1.5x)   ━ = boosted ensemble
+  |                                                          |
+  |━━━━                                ━━━━━━                |
+  |  ··━                             ━━      ━━              |
+  |    ··                          ━━          ━·            |
+  |     ━━                        ━             ━━           |
+  |       ━                     ━━                ━          |
+  |        ━━                  ··                  ━━        |
+  |          ━                ━━                     ━       |
+  |           ━━            ━━                        ━      |
+  |            ·━          ··                          ━━    |
+  |              ━·      ━━━                             ━·  |
+  |               ━━━━━━━                                 ━━━|
+  |                                                          |
+
+  one depth-2 stump  : test MSE 0.109  (can&#x27;t bend)
+  150-stump boosting : test MSE 0.009  (12× better)
+
+Residuals shrink with every tree (training MSE, gradient descent):
+     1 trees  ████████████████████████████████████████ 0.403
+     5 trees  ██████████████████████                   0.225
+    15 trees  ███████                                  0.067
+    50 trees  █                                        0.005
+   150 trees                                           0.002
+
+Shrinkage — the learning rate trades trees for caution:
+   lr=0.5   train MSE 0.001  test MSE 0.009
+   lr=0.1   train MSE 0.002  test MSE 0.009
+   lr=0.03  train MSE 0.003  test MSE 0.011
+
+  A big lr reaches a low train error in few trees; a small lr takes more
+  trees but each step is gentler — the regularization knob behind XGBoost.</pre>
   </div>
 </section>
 
