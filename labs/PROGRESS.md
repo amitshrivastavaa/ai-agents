@@ -111,6 +111,8 @@ PRs can't be reused) and merge it.
 
 | 35 | `pagerank` | PageRank by power iteration (the eigenvector that ranked the web): converges to the dominant eigenvector of the Google matrix, handles dangling nodes + teleport; PROVEN = the random surfer's stationary distribution (Monte-Carlo cross-check matches to ~0.001); damping dial; pairs with repo_cartographer | ✅ done — 8 tests green |
 
+| 36 | `sketch` | streaming probabilistic data structures: Count-Min Sketch (approx frequencies, never underestimates, overshoot ≤ ε·N, heavy hitters) + HyperLogLog (cardinality via max leading-zeros, ~1-3% error in 4KB regardless of count); fixed sublinear memory; the backbone of real-time analytics / n-gram counting at scale | ✅ done — 11 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Deferred / lessons
