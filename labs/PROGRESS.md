@@ -43,6 +43,7 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 - PR #13 merged: #33 `gp` (Gaussian Process regression) → `main`.
 - PR #14 merged: #34 `hmm` (Hidden Markov Models / Viterbi) → `main`.
 - PR #15 merged: #35 `pagerank` (power iteration / graph centrality) → `main`.
+- PR #16 merged: #36 `sketch` (Count-Min + HyperLogLog streaming) → `main`.
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
@@ -112,6 +113,8 @@ PRs can't be reused) and merge it.
 | 35 | `pagerank` | PageRank by power iteration (the eigenvector that ranked the web): converges to the dominant eigenvector of the Google matrix, handles dangling nodes + teleport; PROVEN = the random surfer's stationary distribution (Monte-Carlo cross-check matches to ~0.001); damping dial; pairs with repo_cartographer | ✅ done — 8 tests green |
 
 | 36 | `sketch` | streaming probabilistic data structures: Count-Min Sketch (approx frequencies, never underestimates, overshoot ≤ ε·N, heavy hitters) + HyperLogLog (cardinality via max leading-zeros, ~1-3% error in 4KB regardless of count); fixed sublinear memory; the backbone of real-time analytics / n-gram counting at scale | ✅ done — 11 tests green |
+
+| 37 | `pca` | Principal Component Analysis from scratch (power iteration + deflation, no numpy): recovers known axes exactly (PC1·true=1.000), components orthonormal, optimal linear compression; DISCOVERS true dimensionality of low-rank data (reconstruction elbow at the real rank); fills the dim-reduction gap, pairs with lsh/gp | ✅ done — 9 tests green |
 
 (Append new ideas here as they're found. Keep the table honest.)
 
