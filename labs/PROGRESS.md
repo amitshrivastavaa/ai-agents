@@ -34,6 +34,7 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 - PR #4 merged: #20 `qlearning` + #21 `attention` → `main`.
 - PR #5 merged: #22 `rag` + #23 `diffusion` → `main`.
 - PR #6 merged: #24 `planner` + #25 `speculative` → `main`.
+- PR #7 merged: #26 `ssm` (Mamba) + #27 `bandits` → `main`.
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
@@ -85,6 +86,8 @@ PRs can't be reused) and merge it.
 | 26 | `ssm` | selective state-space model (Mamba) from scratch: the SSM duality (recurrence ≡ convolution, to 1e-16) + selectivity — input-dependent Δ solves sample-and-hold/selective-copy that the BEST fixed-dynamics LTI provably can't (>1e9× lower MSE); pairs with attention (#21) | ✅ done — 10 tests green |
 
 | 27 | `bandits` | multi-armed bandits: random/greedy/ε-greedy/UCB1/Thompson on a Bernoulli bandit, scored by cumulative regret — dumb policies stay linear, UCB1/Thompson go sublinear (Thompson ~95% optimal pulls); the stateless root of RL, pairs with qlearning (#20) | ✅ done — 12 tests green |
+
+| 28 | `grpo` | Group Relative Policy Optimization from scratch (the RL behind reasoning models / DeepSeek-R1, RLVR): softmax policy + group-mean-baseline advantage solves a verifiable-reward task 100%, and converges ~2.5× faster than baseline-free REINFORCE; policy-gradient capstone of the RL thread (bandits→qlearning→grpo) | ✅ done — 9 tests green |
 
 (Append new ideas here as they're found. Keep the table honest.)
 
