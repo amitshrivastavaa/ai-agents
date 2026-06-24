@@ -32,6 +32,8 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 - PR #3 merged: MVPs #0–19 + GitHub Actions CI (`.github/workflows/labs-ci.yml`,
   runs all tests + demo smoke tests, stdlib-only) → `main`.
 - PR #4 merged: #20 `qlearning` + #21 `attention` → `main`.
+- PR #5 merged: #22 `rag` + #23 `diffusion` → `main`.
+- PR #6 (pending merge): #24 `planner` + #25 `speculative` → `main`.
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
@@ -76,6 +78,10 @@ PRs can't be reused) and merge it.
 
 | 23 | `diffusion` | score-based diffusion generative model from scratch: annealed Langevin sampling with the analytic GMM score turns noise into a ring/spiral/clusters (no training) | ✅ done — 7 tests green |
 
+| 24 | `planner` | classical STRIPS planner (blocks world): BFS/A* state-space search solves the Sussman anomaly optimally; ASCII towers + plan trace (GOFAI) | ✅ done — 8 tests green |
+
+| 25 | `speculative` | speculative decoding from scratch: a bigram draft guesses k tokens, a 4-gram target verifies a block per call — provably lossless (output == pure target greedy) at 2.2× fewer target calls (Leviathan/Chen 2023) | ✅ done — 9 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Idea sources (second research round, June 2026)
@@ -111,14 +117,14 @@ python -m unittest discover -s labs -t . -p 'test_*.py'   # all lab tests
 
 - #10-15 (tree_of_thoughts, constitutional, swarm, hopfield, micrograd,
   morphogenesis) DONE.
-- Next wakeup: build from the unbuilt backlog. Strong next picks: BPE tokenizer
-  (from scratch, foundational, fast), MoE router (gating + experts + load
-  balancing), PDDL/STRIPS planner (symbolic AI), AlphaEvolve-style symbolic
-  regression (evolve a formula, verified). Then a fresh WebSearch round.
-  Unbuilt backlog: diffusion-from-scratch, speculative decoding,
-  LLM-debate-for-truth, PDDL/STRIPS planner, RAG/vector-search from scratch,
-  q-learning gridworld, transformer-attention-from-scratch.
-  (#16 bpe, #17 neuroevolution, #18 moe, #19 symbolic_regression DONE.)
+- Next wakeup: build from the unbuilt backlog. Strong next picks (all from
+  scratch, offline): **multi-armed bandits** (ε-greedy / UCB1 / Thompson —
+  exploration vs exploitation, regret curves), **Kalman filter** (track a noisy
+  1-D/2-D object, optimal recursive estimator), **beam search vs greedy** decoding,
+  **GAN** (1-D toy, generator vs discriminator), **transformer block** (attention
+  #21 + residual MLP + layernorm wired into one forward pass), **n-gram LM with
+  smoothing + perplexity**, **LLM-debate-for-truth** (two agents argue, judge picks).
+  (#16 bpe … #25 speculative DONE.)
   Consider a fresh WebSearch round soon for newer trends.
 - After each: run its tests + `unittest discover -s labs -t .`, update this table,
   commit, push.
