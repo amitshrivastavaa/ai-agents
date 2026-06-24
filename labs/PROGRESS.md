@@ -42,6 +42,21 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 - PR #12 merged: #32 `lsh` (locality-sensitive hashing / ANN search) → `main`.
 - PR #13 merged: #33 `gp` (Gaussian Process regression) → `main`.
 - PR #14 merged: #34 `hmm` (Hidden Markov Models / Viterbi) → `main`.
+- PR #15 merged: #35 `pagerank` (power iteration / graph centrality) → `main`.
+- PR #16 merged: #36 `sketch` (Count-Min + HyperLogLog streaming) → `main`.
+- PR #17 merged: #37 `pca` (Principal Component Analysis) → `main`.
+- PR #18 merged: #38 `kmeans` (k-means clustering / k-means++) → `main`.
+- PR #19 merged: #39 `conformal` (distribution-free prediction intervals) → `main`.
+- PR #20 merged: #40 `tree` (CART decision tree) → `main`.  ← 40 MVPs milestone
+- PR #21 merged: SHOWCASE — static GitHub Pages gallery (`tools/build_site.py` →
+  `docs/index.html`, `pages.yml` auto-deploy) + `python -m labs` launcher. Live at
+  https://amitshrivastavaa.github.io/ai-agents/ once Pages source is set to
+  "GitHub Actions" in repo settings (one-time, user must toggle).
+  NOTE: regenerate `docs/index.html` (`python tools/build_site.py`) when adding an
+  MVP so the committed snapshot stays current (the workflow also rebuilds on push).
+- PR #22 merged: #41 `forest` (random forest, ensembles #40 tree) → `main`.
+- PR #23 merged: #42 `boosting` (gradient boosting / XGBoost engine) → `main`.
+- PR #24 merged: #43 `naivebayes` (Naive Bayes text classifier) → `main`.
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
@@ -109,6 +124,24 @@ PRs can't be reused) and merge it.
 | 34 | `hmm` | Hidden Markov Models from scratch (log-space Viterbi + forward + forward-backward), shown on the dishonest casino: recovers which die (fair/loaded) was in play from rolls alone (~80-95% acc) + posterior confidence; PROVEN correct vs brute-force enumeration of all paths; fills the sequence-DP gap | ✅ done — 8 tests green |
 
 | 35 | `pagerank` | PageRank by power iteration (the eigenvector that ranked the web): converges to the dominant eigenvector of the Google matrix, handles dangling nodes + teleport; PROVEN = the random surfer's stationary distribution (Monte-Carlo cross-check matches to ~0.001); damping dial; pairs with repo_cartographer | ✅ done — 8 tests green |
+
+| 36 | `sketch` | streaming probabilistic data structures: Count-Min Sketch (approx frequencies, never underestimates, overshoot ≤ ε·N, heavy hitters) + HyperLogLog (cardinality via max leading-zeros, ~1-3% error in 4KB regardless of count); fixed sublinear memory; the backbone of real-time analytics / n-gram counting at scale | ✅ done — 11 tests green |
+
+| 37 | `pca` | Principal Component Analysis from scratch (power iteration + deflation, no numpy): recovers known axes exactly (PC1·true=1.000), components orthonormal, optimal linear compression; DISCOVERS true dimensionality of low-rank data (reconstruction elbow at the real rank); fills the dim-reduction gap, pairs with lsh/gp | ✅ done — 9 tests green |
+
+| 38 | `kmeans` | k-means clustering (Lloyd) + k-means++ init + elbow method: inertia monotonically decreases, recovers separated blobs (~99% purity), k-means++ crushes random init (mean inertia 265 vs 352, far better worst-case), elbow finds true k; unsupervised companion to pca | ✅ done — 7 tests green |
+
+| 39 | `conformal` | conformal prediction (distribution-free uncertainty, trending): split-conformal wraps any model — calibration-set residual quantile gives intervals with PROVEN ≥1−α coverage; empirical coverage lands exactly on 0.95/0.90/0.80 across 40 splits regardless of (heteroscedastic) noise; adaptive variant widens with noise; assumption-light cousin of gp | ✅ done — 7 tests green |
+
+| 40 | `tree` | CART decision tree from scratch (Gini/entropy + greedy splits): axis-aligned cuts carve non-linear boundaries — 100% on separable blobs, ~94% on moons (ASCII decision-boundary staircase), solves XOR a linear model can't, depth sweep shows the overfitting gap; building block of RF/XGBoost. Extended with max_features for forests. | ✅ done — 9 tests green |
+
+| 41 | `forest` | random forest from scratch (ensemble of #40's DecisionTree): bagging + √d feature subsampling decorrelate the trees; voting beats a single tree (~97.5% vs 94% on moons), variance halves with more trees, out-of-bag score ≈ test (free validation), solves XOR; caps the tree thread | ✅ done — 7 tests green |
+
+| 42 | `boosting` | gradient boosting from scratch (the XGBoost/LightGBM engine): sequential shallow regression trees each fit the residual = negative gradient → gradient descent in function space; 150 depth-2 stumps trace sin(1.5x) (~12× better than one stump), monotone train loss, shrinkage knob; completes tree→forest→boosting | ✅ done — 8 tests green |
+
+| 43 | `naivebayes` | multinomial Naive Bayes text classifier (counts + logs + Laplace smoothing): ~95% sentiment accuracy vs ~50% baseline, interpretable top-words per class (log-odds), smoothing handles unseen words, more data helps; fills the text-classification gap | ✅ done — 7 tests green |
+
+| 44 | `logreg` | logistic regression by gradient descent (the canonical linear classifier): convex cross-entropy → monotone descent to global optimum, linear boundary (~97% on separable), calibrated probabilities, L2 weight decay; honestly underfits moons (~86%); discriminative counterpart to naivebayes | ✅ done — 7 tests green |
 
 (Append new ideas here as they're found. Keep the table honest.)
 

@@ -11,6 +11,17 @@ install), and upgrades to a real model when `ANTHROPIC_API_KEY` is set.
 > platform — it's an experimentation sandbox. See
 > [`PROGRESS.md`](PROGRESS.md) for the running build log.
 
+## 🖼️ Showcase
+
+- **Live gallery** → **https://amitshrivastavaa.github.io/ai-agents/** — every
+  demo's real output on one page (auto-built by [`tools/build_site.py`](../tools/build_site.py)
+  and published by the [`pages`](../.github/workflows/pages.yml) workflow; enable
+  it once via repo *Settings → Pages → Source: GitHub Actions*).
+- **Browse locally** → `python -m labs` lists all MVPs; `python -m labs <name>`
+  runs one; `python -m labs --all` runs them all.
+- **Rebuild the page** → `python tools/build_site.py` writes `docs/index.html`
+  (open it directly — no server needed).
+
 ## The MVPs
 
 | MVP | What it is | Inspired by |
@@ -50,6 +61,15 @@ install), and upgrades to a real model when `ANTHROPIC_API_KEY` is set.
 | [`gp`](gp/) | Gaussian Process regression from scratch (RBF kernel + Cholesky solve, closed-form, no training): curve fitting with **calibrated uncertainty** — the 95% band pinches to the noise floor at the data and balloons to the prior in gaps and extrapolation. The model knows what it doesn't know. Complements the Bayesian `kalman` filter. | Gaussian Processes / uncertainty |
 | [`hmm`](hmm/) | Hidden Markov Models from scratch — log-space **Viterbi**, **forward**, and **forward-backward** — shown on the dishonest casino: recover which die (fair/loaded) was in play from the rolls alone, plus a posterior-confidence track. **Proven correct** against brute-force enumeration of every path. | HMMs / Viterbi (sequence DP) |
 | [`pagerank`](pagerank/) | PageRank by power iteration — the eigenvector that ranked the web. Converges to the dominant eigenvector of the Google matrix (with teleport + dangling-node handling), and is **proven** to equal an independent random-surfer Monte-Carlo walk (agree to ~0.001). Companion to `repo_cartographer`. | PageRank / graph centrality |
+| [`sketch`](sketch/) | Streaming probabilistic data structures: **Count-Min Sketch** (approximate frequencies — never underestimates, overshoot ≤ ε·N, finds heavy hitters) and **HyperLogLog** (distinct-count from max leading-zeros, ~1–3% error in ~4 KB regardless of cardinality). Fixed sublinear memory — the backbone of real-time analytics and n-gram counting at scale. | streaming sketches (CMS / HLL) |
+| [`pca`](pca/) | Principal Component Analysis from scratch (power iteration + deflation, no numpy): recovers the true axes of variation exactly, components orthonormal, the optimal linear compressor — and it **discovers the true dimensionality** of low-rank data (the reconstruction-error elbow lands on the real rank). | PCA / dimensionality reduction |
+| [`kmeans`](kmeans/) | k-means clustering (Lloyd's algorithm) with **k-means++** init and the **elbow** method: monotonically falling inertia, ~99% purity on separated blobs, and a clear demonstration that k-means++ crushes random init (far lower mean *and* worst-case inertia). The unsupervised companion to `pca`. | k-means / clustering |
+| [`conformal`](conformal/) | Conformal prediction — distribution-free prediction intervals with a **proven ≥1−α coverage guarantee** that holds for any model and any data distribution. Empirical coverage lands exactly on 0.95/0.90/0.80 across random splits; an adaptive variant widens intervals where the noise is. The assumption-light cousin of `gp`. | conformal prediction / trustworthy ML |
+| [`tree`](tree/) | A CART decision tree from scratch (Gini/entropy + greedy splits): axis-aligned cuts carve non-linear boundaries — 100% on separable blobs, ~94% on two moons (with an ASCII decision-boundary staircase), and it solves XOR a linear model can't. The depth sweep shows the overfitting gap; the building block of random forests / XGBoost. | decision trees / CART |
+| [`forest`](forest/) | A random forest from scratch — an ensemble of `tree`'s `DecisionTree` with **bagging** + **feature subsampling**. Voting decorrelated trees beats a single tree (~97.5% vs 94% on moons), the variance halves as trees are added, and the **out-of-bag** score gives validation for free. | random forests / bagging |
+| [`boosting`](boosting/) | Gradient boosting from scratch — the XGBoost/LightGBM engine. Shallow regression trees fit **sequentially**, each to the residual (= the negative gradient → gradient descent in function space). 150 depth-2 stumps trace `sin(1.5x)` ~12× better than one stump; monotone training loss; the shrinkage knob. Completes `tree → forest → boosting`. | gradient boosting / XGBoost |
+| [`naivebayes`](naivebayes/) | A multinomial Naive Bayes text classifier (counts + logs + Laplace smoothing): ~95% sentiment accuracy vs ~50% baseline, and **interpretable** — it reads back the most distinctive positive/negative words it learned. Robust to unseen words; improves with data. | Naive Bayes / text classification |
+| [`logreg`](logreg/) | Logistic regression by gradient descent — the canonical linear classifier. Convex cross-entropy → monotone descent to the global optimum, a clean linear boundary (~97% on separable data), and genuinely **calibrated probabilities**. The discriminative counterpart to `naivebayes`; honestly underfits non-linear moons. | logistic regression / linear models |
 
 _(more landing through the night — see [`PROGRESS.md`](PROGRESS.md))_
 
