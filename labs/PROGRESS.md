@@ -93,6 +93,8 @@ PRs can't be reused) and merge it.
 
 | 29 | `flow` | flow matching / rectified flow from scratch (the engine of Stable Diffusion 3 & Flux): analytic marginal velocity field v=(ŷ−x)/(1−t), integrate a deterministic ODE that flows N(0,I) onto ring/clusters/grid/moons/spiral in ~16 steps, 100% mode coverage, near-straight paths; pairs with diffusion (#23) | ✅ done — 10 tests green |
 
+| 30 | `transformer` | a decoder block from scratch (LayerNorm + causal MHA + MLP + residual, verified causal/identity) AND the 2-layer induction circuit (prev-token head → induction head) that does in-context learning: 100% on repeated patterns vs 0% for a 1-layer ablation; caps bpe→micrograd→attention→transformer | ✅ done — 13 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Idea sources (second research round, June 2026)
