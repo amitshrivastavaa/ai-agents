@@ -55,6 +55,7 @@ into `labs/`, continuously through the night. Go wild — but ship things that
   NOTE: regenerate `docs/index.html` (`python tools/build_site.py`) when adding an
   MVP so the committed snapshot stays current (the workflow also rebuilds on push).
 - PR #22 merged: #41 `forest` (random forest, ensembles #40 tree) → `main`.
+- PR #23 merged: #42 `boosting` (gradient boosting / XGBoost engine) → `main`.
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
@@ -136,6 +137,8 @@ PRs can't be reused) and merge it.
 | 41 | `forest` | random forest from scratch (ensemble of #40's DecisionTree): bagging + √d feature subsampling decorrelate the trees; voting beats a single tree (~97.5% vs 94% on moons), variance halves with more trees, out-of-bag score ≈ test (free validation), solves XOR; caps the tree thread | ✅ done — 7 tests green |
 
 | 42 | `boosting` | gradient boosting from scratch (the XGBoost/LightGBM engine): sequential shallow regression trees each fit the residual = negative gradient → gradient descent in function space; 150 depth-2 stumps trace sin(1.5x) (~12× better than one stump), monotone train loss, shrinkage knob; completes tree→forest→boosting | ✅ done — 8 tests green |
+
+| 43 | `naivebayes` | multinomial Naive Bayes text classifier (counts + logs + Laplace smoothing): ~95% sentiment accuracy vs ~50% baseline, interpretable top-words per class (log-odds), smoothing handles unseen words, more data helps; fills the text-classification gap | ✅ done — 7 tests green |
 
 (Append new ideas here as they're found. Keep the table honest.)
 
