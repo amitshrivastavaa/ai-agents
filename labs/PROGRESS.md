@@ -77,6 +77,8 @@ PRs can't be reused) and merge it.
 
 | 23 | `diffusion` | score-based diffusion generative model from scratch: annealed Langevin sampling with the analytic GMM score turns noise into a ring/spiral/clusters (no training) | ✅ done — 7 tests green |
 
+| 24 | `planner` | classical STRIPS planner (blocks world): BFS/A* state-space search solves the Sussman anomaly optimally; ASCII towers + plan trace (GOFAI) | ✅ done — 8 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Idea sources (second research round, June 2026)
