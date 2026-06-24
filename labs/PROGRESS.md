@@ -69,6 +69,8 @@ merge later batches (the closed PR #3 can't be reused). CI is the "deploy".
 
 | 20 | `qlearning` | tabular Q-learning on a gridworld (cliff-walk/maze/rooms): learns the optimal policy from reward, matches value iteration; policy arrows + value heatmap | ✅ done — 9 tests green |
 
+| 21 | `attention` | scaled dot-product attention from scratch + a hand-wired induction head doing in-context next-token prediction (no training); caps the LLM-from-scratch thread | ✅ done — 9 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Idea sources (second research round, June 2026)
