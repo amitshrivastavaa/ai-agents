@@ -25,7 +25,7 @@ jobs:
           for demo in $(python - <<'PY'
 import pkgutil, labs
 for m in pkgutil.iter_modules(labs.__path__):
-    if m.ispkg and m.name != "_kernel":
+    if m.ispkg and not m.name.startswith("_"):
         print(f"labs.{m.name}.demo")
 PY
           ); do
