@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>labs — a research lab of wild AI MVPs</title>
-<meta name="description" content="43 self-contained, from-scratch AI/ML MVPs — each runs offline with the Python standard library alone.">
+<meta name="description" content="44 self-contained, from-scratch AI/ML MVPs — each runs offline with the Python standard library alone.">
 <style>
 :root{--bg:#0d1117;--panel:#161b22;--ink:#e6edf3;--mut:#8b949e;--acc:#58a6ff;
 --term:#0b0e14;--green:#3fb950;--border:#30363d}
@@ -43,15 +43,15 @@ footer{padding:48px 0 80px;color:var(--mut);text-align:center;font-size:14px}
 <div class="wrap">
 <header>
   <h1>labs<span style="color:var(--mut);font-weight:400"> / wild AI MVPs</span></h1>
-  <p class="tag">43 self-contained MVPs, each inspired by a trending idea in AI —
+  <p class="tag">44 self-contained MVPs, each inspired by a trending idea in AI —
   built from scratch, running <b>offline with the Python standard library alone</b>.</p>
   <div class="stats">
-    <div class="stat"><b>43</b><span>MVPs</span></div>
-    <div class="stat"><b>411</b><span>passing tests</span></div>
+    <div class="stat"><b>44</b><span>MVPs</span></div>
+    <div class="stat"><b>418</b><span>passing tests</span></div>
     <div class="stat"><b>0</b><span>dependencies to run</span></div>
     <div class="stat"><b>100%</b><span>deterministic</span></div>
   </div>
-  <div class="toc"><a href="#agent_swarm">agent_swarm</a><a href="#agent_memory">agent_memory</a><a href="#jailbreak_gauntlet">jailbreak_gauntlet</a><a href="#prompt_evolver">prompt_evolver</a><a href="#tiny_town">tiny_town</a><a href="#agent_os">agent_os</a><a href="#repo_cartographer">repo_cartographer</a><a href="#world_model">world_model</a><a href="#evo_arena">evo_arena</a><a href="#tree_of_thoughts">tree_of_thoughts</a><a href="#constitutional">constitutional</a><a href="#swarm">swarm</a><a href="#hopfield">hopfield</a><a href="#micrograd">micrograd</a><a href="#morphogenesis">morphogenesis</a><a href="#bpe">bpe</a><a href="#neuroevolution">neuroevolution</a><a href="#moe">moe</a><a href="#symbolic_regression">symbolic_regression</a><a href="#qlearning">qlearning</a><a href="#attention">attention</a><a href="#rag">rag</a><a href="#diffusion">diffusion</a><a href="#planner">planner</a><a href="#speculative">speculative</a><a href="#ssm">ssm</a><a href="#bandits">bandits</a><a href="#grpo">grpo</a><a href="#flow">flow</a><a href="#transformer">transformer</a><a href="#kalman">kalman</a><a href="#lsh">lsh</a><a href="#gp">gp</a><a href="#hmm">hmm</a><a href="#pagerank">pagerank</a><a href="#sketch">sketch</a><a href="#pca">pca</a><a href="#kmeans">kmeans</a><a href="#conformal">conformal</a><a href="#tree">tree</a><a href="#forest">forest</a><a href="#boosting">boosting</a><a href="#naivebayes">naivebayes</a></div>
+  <div class="toc"><a href="#agent_swarm">agent_swarm</a><a href="#agent_memory">agent_memory</a><a href="#jailbreak_gauntlet">jailbreak_gauntlet</a><a href="#prompt_evolver">prompt_evolver</a><a href="#tiny_town">tiny_town</a><a href="#agent_os">agent_os</a><a href="#repo_cartographer">repo_cartographer</a><a href="#world_model">world_model</a><a href="#evo_arena">evo_arena</a><a href="#tree_of_thoughts">tree_of_thoughts</a><a href="#constitutional">constitutional</a><a href="#swarm">swarm</a><a href="#hopfield">hopfield</a><a href="#micrograd">micrograd</a><a href="#morphogenesis">morphogenesis</a><a href="#bpe">bpe</a><a href="#neuroevolution">neuroevolution</a><a href="#moe">moe</a><a href="#symbolic_regression">symbolic_regression</a><a href="#qlearning">qlearning</a><a href="#attention">attention</a><a href="#rag">rag</a><a href="#diffusion">diffusion</a><a href="#planner">planner</a><a href="#speculative">speculative</a><a href="#ssm">ssm</a><a href="#bandits">bandits</a><a href="#grpo">grpo</a><a href="#flow">flow</a><a href="#transformer">transformer</a><a href="#kalman">kalman</a><a href="#lsh">lsh</a><a href="#gp">gp</a><a href="#hmm">hmm</a><a href="#pagerank">pagerank</a><a href="#sketch">sketch</a><a href="#pca">pca</a><a href="#kmeans">kmeans</a><a href="#conformal">conformal</a><a href="#tree">tree</a><a href="#forest">forest</a><a href="#boosting">boosting</a><a href="#naivebayes">naivebayes</a><a href="#logreg">logreg</a></div>
 </header>
 
 <section class="mvp" id="agent_swarm">
@@ -475,10 +475,10 @@ of the failed build — all from the same scheduler.</pre>
     &nbsp;python -m labs.repo_cartographer.demo</div>
     <pre>Mapping &#x27;labs&#x27; — the lab maps itself:
 
-  341 modules · 580 edges · 211 classes · 604 functions · 20105 LOC · 0 cycles
+  348 modules · 590 edges · 213 classes · 617 functions · 20455 LOC · 0 cycles
 
 Most depended-on modules (the load-bearing ones):
-  58 ← labs._kernel
+  59 ← labs._kernel
    9 ← labs.tree.tree
    7 ← labs.qlearning.gridworld
    7 ← labs.tree.data
@@ -486,7 +486,7 @@ Most depended-on modules (the load-bearing ones):
    6 ← labs.diffusion.target
 
 Blast radius if you change the shared kernel text utils:
-  205 modules would be affected.
+  210 modules would be affected.
 
 MVP packages and what each leans on:
   agent_swarm          reuses: labs._kernel, labs._kernel.brain, labs._kernel.text
@@ -2231,7 +2231,7 @@ Trained on 350 generated movie reviews (pos / neg).
 
 What it learned — the most *distinctive* words per class (log-odds):
   POS →  enjoyed  brilliant  excellent  perfect  great  stellar  love  superb
-  NEG →  mediocre  annoying  terrible  disappointing  worst  awful  bad  waste
+  NEG →  mediocre  annoying  disappointing  terrible  worst  awful  bad  waste
 
 Classify new reviews (margin = how far apart the class scores are):
   👍 POS (margin  4.3)  &quot;an absolutely wonderful film, the best story i have ev&quot;
@@ -2244,6 +2244,49 @@ And it keeps improving with data:
     30 train docs → 92% test accuracy
    100 train docs → 97% test accuracy
    300 train docs → 97% test accuracy</pre>
+  </div>
+</section>
+
+<section class="mvp" id="logreg">
+  <h2><a href="#logreg">logreg</a><span class="badge">logistic regression / linear models</span></h2>
+  <p class="desc">Logistic regression by gradient descent — the canonical linear classifier. Convex cross-entropy → monotone descent to the global optimum, a clean linear boundary (~97% on separable data), and genuinely <strong>calibrated probabilities</strong>. The discriminative counterpart to <code>naivebayes</code>; honestly underfits non-linear moons.</p>
+  <p class="run">run it&nbsp; <code>python -m labs.logreg.demo</code></p>
+  <div class="term">
+    <div class="bar"><span class="dot" style="background:#ff5f56"></span>
+    <span class="dot" style="background:#ffbd2e"></span>
+    <span class="dot" style="background:#27c93f"></span>
+    &nbsp;python -m labs.logreg.demo</div>
+    <pre>Logistic regression — P(y=1|x) = σ(w·x + b), fit by gradient descent.
+
+It draws the best straight boundary between two classes (o / #):
+  |░░░░░░░░░░░░░░░░░░░░░░░░#░░░░░░░░░░░░░░░░░░░░░|
+  |░░░░░░░░░░░░░░░░░░░░░░░░#░░░░░░░#░░░░░░░░░░░░░|
+  |··░░░░░░░░░░░░░░░░░░░░░##░#░##░##░░#░░░░░░░░░░|
+  |······░░░░░░░░░░░░░░░░░░░#░#########░##░░░░░░░|
+  |··········░░░░░#░░░#░#############░░###░#░░░░░|
+  |··············░#o#░#░##############░##░#░░░#░░|
+  |············o····░░#░##############░░#░###░░░░|
+  |··oo····o··o·oooo###·o░#░######░###░░░░#░░░#░░|
+  |··o·ooooooooooooo·ooo·o·o#░#o░░░░░░░#░░░░░░░░░|
+  |·····oooooooooooooooooo··#·#·░░░░░░░░░░░░░░░░░|
+  |·····ooooo··oooooooo·oo·o········░░░░░░░░░░░░░|
+  |···oo·····oo·oooooo··o·o·············░░░░░░░░░|
+  |·····o··oo·o·o·········oo················░░░░░|
+  |···············o··o·························░░|
+  |·········o····································|
+
+  test accuracy 98%   learned weights w=(+3.31, +3.66), b=+0.60
+
+Cross-entropy loss is convex, so gradient descent slides to the global
+optimum — no local minima:  █▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁  (0.69 → 0.06)
+
+And the outputs are real probabilities — predicted vs. actual positive rate:
+   said   0% → actually   0% positive  (n=58)
+   said  75% → actually  80% positive  (n=5)
+   said 100% → actually  98% positive  (n=56)
+
+Its limit: one straight line. On non-linear &#x27;moons&#x27; it tops out at 86%
+— exactly where the lab&#x27;s tree/forest (axis-aligned splits) pull ahead.</pre>
   </div>
 </section>
 

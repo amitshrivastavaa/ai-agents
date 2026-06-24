@@ -141,6 +141,8 @@ PRs can't be reused) and merge it.
 
 | 43 | `naivebayes` | multinomial Naive Bayes text classifier (counts + logs + Laplace smoothing): ~95% sentiment accuracy vs ~50% baseline, interpretable top-words per class (log-odds), smoothing handles unseen words, more data helps; fills the text-classification gap | ✅ done — 7 tests green |
 
+| 44 | `logreg` | logistic regression by gradient descent (the canonical linear classifier): convex cross-entropy → monotone descent to global optimum, linear boundary (~97% on separable), calibrated probabilities, L2 weight decay; honestly underfits moons (~86%); discriminative counterpart to naivebayes | ✅ done — 7 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Deferred / lessons
