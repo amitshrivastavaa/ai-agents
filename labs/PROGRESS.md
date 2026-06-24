@@ -38,6 +38,7 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 - PR #8 merged: #28 `grpo` (reasoning-model RL) → `main`.
 - PR #9 merged: #29 `flow` (flow matching / rectified flow) → `main`.
 - PR #10 merged: #30 `transformer` (decoder block + induction circuit) → `main`.
+- PR #11 merged: #31 `kalman` (Kalman filter / state estimation) → `main`.
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
@@ -98,7 +99,18 @@ PRs can't be reused) and merge it.
 
 | 31 | `kalman` | the Kalman filter from scratch (own 40-line matrix algebra incl. Gauss-Jordan inverse): predict/update with the Kalman gain tracks a noisy 2-D object at ~40-50% lower RMSE than the sensor, beats a moving-average smoother, recovers UNMEASURED velocity, gain → steady state; fills the state-estimation gap | ✅ done — 9 tests green |
 
+| 32 | `lsh` | locality-sensitive hashing (SimHash) for approximate nearest-neighbour search — the engine under vector DBs / RAG-at-scale: ~90% recall@10 scanning ~14% of data (7× speedup), the recall/speedup dial (tables vs bits), and verifies the provable 1−θ/π collision law; pairs with rag (#22) | ✅ done — 9 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
+
+### Deferred / lessons
+- **GAN (deferred):** attempted a from-scratch 1-D GAN for the #32 slot but hit
+  the classic variance-collapse instability — a linear discriminator gives no
+  variance signal, and a quadratic one drove the affine generator to a point mass
+  across all seeds. Rather than ship a flaky MVP, pivoted to `lsh`. Revisit with a
+  **WGAN** critic (Wasserstein + weight clipping / gradient penalty) or R1
+  regularization, which are far more stable, and only ship once it passes airtight
+  tests. (Airtightness > coverage.)
 
 ### Idea sources (second research round, June 2026)
 - Test-time compute / **Tree-of-Thoughts** reasoning is THE theme (o1-style "think
