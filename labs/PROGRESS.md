@@ -96,6 +96,8 @@ PRs can't be reused) and merge it.
 
 | 30 | `transformer` | a decoder block from scratch (LayerNorm + causal MHA + MLP + residual, verified causal/identity) AND the 2-layer induction circuit (prev-token head → induction head) that does in-context learning: 100% on repeated patterns vs 0% for a 1-layer ablation; caps bpe→micrograd→attention→transformer | ✅ done — 13 tests green |
 
+| 31 | `kalman` | the Kalman filter from scratch (own 40-line matrix algebra incl. Gauss-Jordan inverse): predict/update with the Kalman gain tracks a noisy 2-D object at ~40-50% lower RMSE than the sensor, beats a moving-average smoother, recovers UNMEASURED velocity, gain → steady state; fills the state-estimation gap | ✅ done — 9 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Idea sources (second research round, June 2026)
