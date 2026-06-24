@@ -33,7 +33,7 @@ into `labs/`, continuously through the night. Go wild — but ship things that
   runs all tests + demo smoke tests, stdlib-only) → `main`.
 - PR #4 merged: #20 `qlearning` + #21 `attention` → `main`.
 - PR #5 merged: #22 `rag` + #23 `diffusion` → `main`.
-- PR #6 (pending merge): #24 `planner` + #25 `speculative` → `main`.
+- PR #6 merged: #24 `planner` + #25 `speculative` → `main`.
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
@@ -81,6 +81,8 @@ PRs can't be reused) and merge it.
 | 24 | `planner` | classical STRIPS planner (blocks world): BFS/A* state-space search solves the Sussman anomaly optimally; ASCII towers + plan trace (GOFAI) | ✅ done — 8 tests green |
 
 | 25 | `speculative` | speculative decoding from scratch: a bigram draft guesses k tokens, a 4-gram target verifies a block per call — provably lossless (output == pure target greedy) at 2.2× fewer target calls (Leviathan/Chen 2023) | ✅ done — 9 tests green |
+
+| 26 | `ssm` | selective state-space model (Mamba) from scratch: the SSM duality (recurrence ≡ convolution, to 1e-16) + selectivity — input-dependent Δ solves sample-and-hold/selective-copy that the BEST fixed-dynamics LTI provably can't (>1e9× lower MSE); pairs with attention (#21) | ✅ done — 10 tests green |
 
 (Append new ideas here as they're found. Keep the table honest.)
 
