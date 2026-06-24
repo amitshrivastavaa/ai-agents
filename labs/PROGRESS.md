@@ -34,6 +34,7 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 - PR #4 merged: #20 `qlearning` + #21 `attention` → `main`.
 - PR #5 merged: #22 `rag` + #23 `diffusion` → `main`.
 - PR #6 merged: #24 `planner` + #25 `speculative` → `main`.
+- PR #7 merged: #26 `ssm` (Mamba) + #27 `bandits` → `main`.
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.
