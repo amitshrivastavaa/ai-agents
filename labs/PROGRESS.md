@@ -47,6 +47,8 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 | 12 | `swarm` | Ant Colony Optimization for TSP — pheromone trails, emergent shortest tour (swarm intelligence; ANTS 2026) | ✅ done — 9 tests green, hits optimal on circle/random8, ASCII tour plots |
 | 13 | `hopfield` | associative memory: store patterns, recover from corrupted/partial input (energy-based attractors; Nobel 2024) | ✅ done — 10 tests green, classic + modern, ASCII recall |
 
+| 14 | `micrograd` | a from-scratch reverse-mode autograd engine + a tiny MLP that learns (XOR/circles/sine) via backprop & SGD — "build ML from scratch" | ✅ done — 11 tests green, gradients verified vs numerical |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Idea sources (second research round, June 2026)
@@ -80,13 +82,15 @@ python -m unittest discover -s labs -t . -p 'test_*.py'   # all lab tests
 
 ## Next steps (for the next wakeup)
 
-- #10-13 (tree_of_thoughts, constitutional, swarm, hopfield) DONE.
-- QUEUE IS DRAINED. Next wakeup: do a fresh WebSearch round for new wild ideas,
-  append #14+ to the table, then build them. Ideas not yet built that surfaced
-  earlier: AlphaEvolve-style program search w/ a verifier, neuroevolution of a
-  tiny controller, micrograd-style autograd + train an MLP, mixture-of-experts
-  router, diffusion-from-scratch, speculative decoding, BPE tokenizer, Hebbian
-  CA / neural cellular automata, LLM-debate-for-truth, PDDL/STRIPS planner.
+- #10-14 (tree_of_thoughts, constitutional, swarm, hopfield, micrograd) DONE.
+- Next wakeup: build from the unbuilt-ideas list below (no research needed yet),
+  or do a fresh WebSearch round. Strong next picks: neural cellular automata
+  (self-healing pattern, very visual), AlphaEvolve-style verifier-guided program
+  search, MoE router, BPE tokenizer, PDDL/STRIPS planner, speculative decoding.
+  Unbuilt backlog: AlphaEvolve-style program search w/ a verifier, neuroevolution
+  of a tiny controller, mixture-of-experts router, diffusion-from-scratch,
+  speculative decoding, BPE tokenizer, neural cellular automata, LLM-debate,
+  PDDL/STRIPS planner.
 - After each: run its tests + `unittest discover -s labs -t .`, update this table,
   commit, push.
 - If you hit a usage/time limit: stop, and the loop will re-check on its

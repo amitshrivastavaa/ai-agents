@@ -26,6 +26,7 @@ install), and upgrades to a real model when `ANTHROPIC_API_KEY` is set.
 | [`constitutional`](constitutional/) | A self-critique & revision loop: draft → critique against a constitution of principles → revise → repeat until clean. Each principle has a rule-checkable detector + deterministic fix, so it converges offline. | Constitutional AI / Self-Refine |
 | [`swarm`](swarm/) | Ant Colony Optimization for the TSP: simple ants lay pheromone and a near-optimal tour emerges (hits the optimum on solvable instances, beats greedy everywhere), drawn in ASCII. | swarm intelligence / ACO (ANTS 2026) |
 | [`hopfield`](hopfield/) | Associative memory: store patterns as energy attractors and recover them from corrupted or half-erased cues. Classic Hebbian + modern dense (softmax ≈ attention); the modern net degrades far more gracefully. | Hopfield networks (Nobel 2024) |
+| [`micrograd`](micrograd/) | A from-scratch reverse-mode autograd engine + a tiny MLP that genuinely learns (XOR 100%, circles, sin(x)) via backprop and SGD. Gradients verified against numerical. No numpy. | "build ML from scratch" (Karpathy micrograd) |
 
 _(more landing through the night — see [`PROGRESS.md`](PROGRESS.md))_
 
