@@ -24,11 +24,7 @@ a { color: inherit; text-decoration: none; }
   margin: 0 0 18px; font-weight: 600; letter-spacing: -.01em;
   text-shadow: 0 0 14px rgba(51,255,102,.18); }
 .hero-body { color: #cfeede; font-size: 16px; line-height: 1.62; margin: 0 0 18px; max-width: 720px; }
-.hero-origin { color: var(--accent); font-size: 14px; line-height: 1.5; margin: 0 0 16px;
-  padding-left: 12px; border-left: 2px solid var(--accent); max-width: 660px; }
 .hero-cta { color: #a8c9b4; font-size: 13.5px; margin: 0 0 8px; }
-.cursor { animation: blink 1.1s step-end infinite; }
-@keyframes blink { 50% { opacity: 0; } }
 .sub { color: var(--dim); margin: 6px 0 0; font-size: 13px; }
 .theme-blurb { color: #a8c9b4; margin: 12px 0 0; font-size: 13px; max-width: 720px; line-height: 1.5; }
 

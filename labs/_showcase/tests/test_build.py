@@ -34,7 +34,7 @@ class CollectTests(unittest.TestCase):
     def test_collect_includes_hero_and_theme_blurbs(self):
         data = collect(names=["hopfield"])
         hero = data.get("hero", {})
-        for field in ("headline", "body", "origin", "cta"):
+        for field in ("headline", "body", "cta"):
             self.assertTrue(hero.get(field), f"hero.{field} missing/empty")
         for tid, meta in data["themes"].items():
             self.assertIn("blurb", meta, tid)

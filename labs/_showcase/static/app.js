@@ -58,7 +58,6 @@ function renderLauncher() {
       <div class="eyebrow">//// ${esc(hero.eyebrow)} ////</div>
       <h1 class="hero-title">${esc(hero.headline)}</h1>
       <p class="hero-body">${esc(hero.body)}</p>
-      <p class="hero-origin"><span class="cursor">▌</span> ${esc(hero.origin)}</p>
       <p class="hero-cta">→ ${esc(hero.cta)}</p>
       <p class="sub">${DATA.labs.length} exhibits · offline · stdlib-only · from scratch</p>
     </header>
