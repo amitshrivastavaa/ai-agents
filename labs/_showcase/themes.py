@@ -53,6 +53,15 @@ THEME_MAP: dict[str, str] = {
     "pagerank": "classical",
     "planner": "classical",
     "repo_cartographer": "classical",
+    "boosting": "classical",
+    "conformal": "classical",
+    "forest": "classical",
+    "kmeans": "classical",
+    "logreg": "classical",
+    "naivebayes": "classical",
+    "pca": "classical",
+    "sketch": "classical",
+    "tree": "classical",
 }
 
 

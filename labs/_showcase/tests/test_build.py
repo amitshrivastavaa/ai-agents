@@ -47,10 +47,11 @@ class BuildTests(unittest.TestCase):
 
 
 class CoverageTests(unittest.TestCase):
-    def test_theme_map_matches_discovered_labs(self):
+    def test_theme_map_has_no_stale_entries(self):
+        # The map may lag behind discovery: a newly-landed lab that isn't mapped
+        # yet falls back to the "classical" theme (see theme_for), so the site
+        # keeps auto-growing without a forced edit. What we DO guard against is a
+        # stale entry — a map key that no longer corresponds to a real lab.
         discovered = set(discover_labs())
-        mapped = set(THEME_MAP)
-        self.assertEqual(
-            discovered, mapped,
-            f"unmapped labs: {discovered - mapped}; stale map entries: {mapped - discovered}",
-        )
+        stale = set(THEME_MAP) - discovered
+        self.assertEqual(stale, set(), f"stale theme-map entries (no such lab): {stale}")
