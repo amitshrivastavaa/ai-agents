@@ -102,6 +102,8 @@ PRs can't be reused) and merge it.
 
 | 32 | `lsh` | locality-sensitive hashing (SimHash) for approximate nearest-neighbour search — the engine under vector DBs / RAG-at-scale: ~90% recall@10 scanning ~14% of data (7× speedup), the recall/speedup dial (tables vs bits), and verifies the provable 1−θ/π collision law; pairs with rag (#22) | ✅ done — 9 tests green |
 
+| 33 | `gp` | Gaussian Process regression from scratch (RBF kernel + Cholesky solve, no training): closed-form posterior mean+variance gives CALIBRATED uncertainty — band pinches to noise floor at data, balloons to prior in gaps/extrapolation; longer lengthscale fills gaps more confidently; complements kalman (#31) | ✅ done — 10 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Deferred / lessons
