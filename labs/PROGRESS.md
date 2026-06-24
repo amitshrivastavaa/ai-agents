@@ -117,6 +117,8 @@ PRs can't be reused) and merge it.
 
 | 37 | `pca` | Principal Component Analysis from scratch (power iteration + deflation, no numpy): recovers known axes exactly (PC1·true=1.000), components orthonormal, optimal linear compression; DISCOVERS true dimensionality of low-rank data (reconstruction elbow at the real rank); fills the dim-reduction gap, pairs with lsh/gp | ✅ done — 9 tests green |
 
+| 38 | `kmeans` | k-means clustering (Lloyd) + k-means++ init + elbow method: inertia monotonically decreases, recovers separated blobs (~99% purity), k-means++ crushes random init (mean inertia 265 vs 352, far better worst-case), elbow finds true k; unsupervised companion to pca | ✅ done — 7 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Deferred / lessons
