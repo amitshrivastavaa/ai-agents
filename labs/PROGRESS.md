@@ -44,7 +44,7 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 
 | 10 | `tree_of_thoughts` | deliberate reasoning search on Game of 24 — beam over "thoughts" w/ Monte-Carlo value, vs random/brute; test-time compute | ✅ done — 10 tests green, solves 8/8 incl. (3,3,8,8) |
 | 11 | `constitutional` | self-critique & revision loop: draft → critique vs a constitution → revise until clean (Constitutional AI / Self-Refine) | ✅ done — 11 tests green |
-| 12 | `swarm` | Ant Colony Optimization for TSP — pheromone trails, emergent shortest tour (swarm intelligence; ANTS 2026) | ⏳ backlog |
+| 12 | `swarm` | Ant Colony Optimization for TSP — pheromone trails, emergent shortest tour (swarm intelligence; ANTS 2026) | ✅ done — 9 tests green, hits optimal on circle/random8, ASCII tour plots |
 | 13 | `hopfield` | associative memory: store patterns, recover from corrupted/partial input (energy-based attractors; Nobel 2024) | ⏳ backlog |
 
 (Append new ideas here as they're found. Keep the table honest.)
@@ -80,8 +80,8 @@ python -m unittest discover -s labs -t . -p 'test_*.py'   # all lab tests
 
 ## Next steps (for the next wakeup)
 
-- #10 tree_of_thoughts, #11 constitutional DONE. Next: build #12 swarm,
-  #13 hopfield. Research again once the queue drains.
+- #10 tree_of_thoughts, #11 constitutional, #12 swarm DONE. Next: #13 hopfield,
+  then research a fresh batch (queue nearly drained).
 - After each: run its tests + `unittest discover -s labs -t .`, update this table,
   commit, push.
 - If you hit a usage/time limit: stop, and the loop will re-check on its
