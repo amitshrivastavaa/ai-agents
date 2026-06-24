@@ -84,6 +84,8 @@ PRs can't be reused) and merge it.
 
 | 26 | `ssm` | selective state-space model (Mamba) from scratch: the SSM duality (recurrence ≡ convolution, to 1e-16) + selectivity — input-dependent Δ solves sample-and-hold/selective-copy that the BEST fixed-dynamics LTI provably can't (>1e9× lower MSE); pairs with attention (#21) | ✅ done — 10 tests green |
 
+| 27 | `bandits` | multi-armed bandits: random/greedy/ε-greedy/UCB1/Thompson on a Bernoulli bandit, scored by cumulative regret — dumb policies stay linear, UCB1/Thompson go sublinear (Thompson ~95% optimal pulls); the stateless root of RL, pairs with qlearning (#20) | ✅ done — 12 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Idea sources (second research round, June 2026)
