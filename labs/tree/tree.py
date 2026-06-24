@@ -10,6 +10,8 @@ from __future__ import annotations
 
 import math
 
+from .._kernel import rng
+
 
 def gini(y):
     n = len(y)
@@ -51,23 +53,37 @@ class Node:
 
 
 class DecisionTree:
-    def __init__(self, max_depth=5, min_samples=2, criterion="gini"):
+    def __init__(self, max_depth=5, min_samples=2, criterion="gini",
+                 max_features=None, seed="dt"):
         self.max_depth = max_depth
         self.min_samples = min_samples
         self.impurity = gini if criterion == "gini" else entropy
+        self.max_features = max_features        # None=all; int; or "sqrt" (for forests)
+        self.seed = seed
         self.root = None
         self.n_features = 0
+        self._rng = None
 
     def fit(self, X, y):
         self.n_features = len(X[0])
+        self._rng = rng("dtree", self.seed, len(X)) if self.max_features else None
         self.root = self._build(list(X), list(y), 0)
         return self
+
+    def _feature_subset(self):
+        if not self.max_features:
+            return range(self.n_features)
+        m = self.max_features
+        if m == "sqrt":
+            m = max(1, int(self.n_features ** 0.5))
+        m = min(int(m), self.n_features)
+        return self._rng.sample(range(self.n_features), m)
 
     def _best_split(self, X, y):
         best = None
         parent = self.impurity(y)
         n = len(y)
-        for f in range(self.n_features):
+        for f in self._feature_subset():
             vals = sorted(set(x[f] for x in X))
             for a, b in zip(vals, vals[1:]):
                 thr = (a + b) / 2.0
