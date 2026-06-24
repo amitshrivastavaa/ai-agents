@@ -123,6 +123,8 @@ PRs can't be reused) and merge it.
 
 | 39 | `conformal` | conformal prediction (distribution-free uncertainty, trending): split-conformal wraps any model — calibration-set residual quantile gives intervals with PROVEN ≥1−α coverage; empirical coverage lands exactly on 0.95/0.90/0.80 across 40 splits regardless of (heteroscedastic) noise; adaptive variant widens with noise; assumption-light cousin of gp | ✅ done — 7 tests green |
 
+| 40 | `tree` | CART decision tree from scratch (Gini/entropy + greedy splits): axis-aligned cuts carve non-linear boundaries — 100% on separable blobs, ~94% on moons (ASCII decision-boundary staircase), solves XOR a linear model can't, depth sweep shows the overfitting gap; building block of RF/XGBoost | ✅ done — 9 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Deferred / lessons
