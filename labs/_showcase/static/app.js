@@ -27,6 +27,7 @@ function route() {
 
 function renderLauncher() {
   const themes = DATA.themes;
+  const hero = DATA.hero || {};
   const q = query.toLowerCase();
   const labs = DATA.labs.filter((l) => {
     const okTheme = activeTheme === "all" || l.theme === activeTheme;
@@ -53,9 +54,12 @@ function renderLauncher() {
   }).join("");
 
   app.innerHTML = `
-    <header class="masthead">
-      <pre class="banner">//// the lab terminal ////</pre>
-      <p class="intro">${esc(DATA.intro || "")}</p>
+    <header class="hero">
+      <div class="eyebrow">//// ${esc(hero.eyebrow)} ////</div>
+      <h1 class="hero-title">${esc(hero.headline)}</h1>
+      <p class="hero-body">${esc(hero.body)}</p>
+      <p class="hero-origin"><span class="cursor">▌</span> ${esc(hero.origin)}</p>
+      <p class="hero-cta">→ ${esc(hero.cta)}</p>
       <p class="sub">${DATA.labs.length} exhibits · offline · stdlib-only · from scratch</p>
     </header>
     <div class="toolbar">

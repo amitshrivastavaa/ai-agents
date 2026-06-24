@@ -14,7 +14,7 @@ import shutil
 import sys
 from pathlib import Path
 
-from .descriptions import INTRO, THEME_BLURBS, plain_for
+from .descriptions import HERO, THEME_BLURBS, plain_for
 from .discover import LABS_DIR, capture_demo, discover_labs
 from .readme import parse_readme
 from .themes import THEMES, theme_for
@@ -43,7 +43,7 @@ def collect(names: list[str] | None = None) -> dict:
         })
     themes = {tid: {**meta, "blurb": THEME_BLURBS.get(tid, "")}
               for tid, meta in THEMES.items()}
-    return {"intro": INTRO, "themes": themes, "labs": labs}
+    return {"hero": HERO, "themes": themes, "labs": labs}
 
 
 def build(out_dir: Path, names: list[str] | None = None) -> dict:

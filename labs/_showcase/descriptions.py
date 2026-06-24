@@ -6,12 +6,24 @@ falls back to the tagline, so the site still auto-grows as new labs land.
 """
 from __future__ import annotations
 
-# One-line answer to "what is this whole thing?", shown on the launcher.
-INTRO = (
-    "A museum of how AI actually works — dozens of tiny programs, each rebuilding "
-    "one famous idea from scratch in plain Python. No libraries, no magic: pick an "
-    "exhibit and watch the mechanism run."
-)
+# The landing hero — the first thing a visitor reads, so they immediately know
+# what this is, why it exists, and what to do. Educational framing + the (true)
+# origin story as the hook.
+HERO = {
+    "eyebrow": "the lab terminal",
+    "headline": "How does AI actually work?",
+    "body": (
+        "Ever wonder what's really inside ChatGPT, AI image generators, or "
+        "Google's search? This is a hands-on museum of AI & machine learning — "
+        "each exhibit rebuilds one famous idea from scratch in plain Python, so "
+        "you can watch the real mechanism run. No setup, no math degree."
+    ),
+    "origin": (
+        "Every exhibit here was designed, built, and tested autonomously by an "
+        "AI agent — overnight."
+    ),
+    "cta": "Click any card to watch its demo · filter by theme · press / to search",
+}
 
 # Plain-English blurb per theme ("the six rooms").
 THEME_BLURBS: dict[str, str] = {

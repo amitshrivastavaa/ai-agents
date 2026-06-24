@@ -29,7 +29,7 @@ class StaticAssetTests(unittest.TestCase):
 
     def test_app_js_renders_plain_english_layer(self):
         js = (STATIC / "app.js").read_text()
-        self.assertIn("DATA.intro", js)      # launcher intro
+        self.assertIn("DATA.hero", js)       # landing hero (what/why/how)
         self.assertIn("l.plain", js)         # plain description on cards
         self.assertIn("themeBlurb", js)      # per-theme room blurb
 

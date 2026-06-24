@@ -31,9 +31,11 @@ class CollectTests(unittest.TestCase):
         self.assertTrue(entry["plain"])
         self.assertTrue(entry["source_url"].endswith("/hopfield"))
 
-    def test_collect_includes_intro_and_theme_blurbs(self):
+    def test_collect_includes_hero_and_theme_blurbs(self):
         data = collect(names=["hopfield"])
-        self.assertTrue(data.get("intro"))
+        hero = data.get("hero", {})
+        for field in ("headline", "body", "origin", "cta"):
+            self.assertTrue(hero.get(field), f"hero.{field} missing/empty")
         for tid, meta in data["themes"].items():
             self.assertIn("blurb", meta, tid)
             self.assertTrue(meta["blurb"], tid)
