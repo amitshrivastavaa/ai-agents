@@ -138,6 +138,8 @@ PRs can't be reused) and merge it.
 
 | 42 | `boosting` | gradient boosting from scratch (the XGBoost/LightGBM engine): sequential shallow regression trees each fit the residual = negative gradient → gradient descent in function space; 150 depth-2 stumps trace sin(1.5x) (~12× better than one stump), monotone train loss, shrinkage knob; completes tree→forest→boosting | ✅ done — 8 tests green |
 
+| 43 | `naivebayes` | multinomial Naive Bayes text classifier (counts + logs + Laplace smoothing): ~95% sentiment accuracy vs ~50% baseline, interpretable top-words per class (log-odds), smoothing handles unseen words, more data helps; fills the text-classification gap | ✅ done — 7 tests green |
+
 (Append new ideas here as they're found. Keep the table honest.)
 
 ### Deferred / lessons
