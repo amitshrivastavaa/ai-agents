@@ -56,8 +56,14 @@ into `labs/`, continuously through the night. Go wild — but ship things that
   on branch `claude/labs-showcase` — a terminal-aesthetic SPA that auto-discovers
   every `demo.py`, so adding an MVP needs NO showcase regeneration. The old
   `tools/build_site.py`, `docs/index.html`, and `pages.yml` were removed; deploy is
-  now `.github/workflows/showcase.yml`. Optionally add new labs to the theme map in
-  `labs/_showcase/themes.py` (unmapped labs fall back to the "classical" theme).
+  now `.github/workflows/showcase.yml` (+ `vercel.json`). Frontend is now a
+  single-scroll, recruiter-first design (hero + stats + "how it was built" + themed
+  sections with each project's plain-English blurb above its inline demo output;
+  search + theme filters). WHEN ADDING AN MVP, for best showcase presentation also
+  add it to: `labs/_showcase/themes.py` (`THEME_MAP`, else falls back to
+  "classical") AND `labs/_showcase/descriptions.py` (`LAB_BLURBS` — a one-sentence
+  plain-English "what it is", else falls back to the README tagline). The site
+  auto-discovers any `demo.py` regardless, so this is polish, not required.
 - PR #22 merged: #41 `forest` (random forest, ensembles #40 tree) → `main`.
 - PR #23 merged: #42 `boosting` (gradient boosting / XGBoost engine) → `main`.
 - PR #24 merged: #43 `naivebayes` (Naive Bayes text classifier) → `main`.
