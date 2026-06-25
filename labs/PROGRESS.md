@@ -61,6 +61,7 @@ into `labs/`, continuously through the night. Go wild — but ship things that
 - PR #22 merged: #41 `forest` (random forest, ensembles #40 tree) → `main`.
 - PR #23 merged: #42 `boosting` (gradient boosting / XGBoost engine) → `main`.
 - PR #24 merged: #43 `naivebayes` (Naive Bayes text classifier) → `main`.
+- PR #25 merged: #44 `logreg` (logistic regression / linear classifier) → `main`.
 The user authorized creating/merging PRs and deploying. CI is the "deploy".
 Keep building on this branch; open a **follow-up PR** for each new batch (closed
 PRs can't be reused) and merge it.

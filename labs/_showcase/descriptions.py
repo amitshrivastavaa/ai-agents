@@ -9,15 +9,23 @@ from __future__ import annotations
 # The landing hero — the first thing a visitor reads, so they immediately know
 # what this is, why it exists, and what to do.
 HERO = {
-    "eyebrow": "the lab terminal",
+    "eyebrow": "An overnight autonomous-build experiment",
     "headline": "How does AI actually work?",
     "body": (
-        "Ever wonder what's really inside ChatGPT, AI image generators, or "
-        "Google's search? This is a hands-on museum of AI & machine learning — "
-        "each exhibit rebuilds one famous idea from scratch in plain Python, so "
-        "you can watch the real mechanism run. No setup, no math degree."
+        "A hands-on museum of AI & machine learning. Every famous idea — from "
+        "ChatGPT's transformer to AI image generators to the algorithm behind "
+        "Google — is rebuilt from scratch in plain Python, so you can watch the "
+        "real mechanism run. No setup, no math degree."
     ),
-    "cta": "Click any card to watch its demo · filter by theme · press / to search",
+    # The recruiter hook — the unusual part worth leading with.
+    "built": (
+        "What makes it unusual: every project below was researched, implemented, "
+        "tested and shipped autonomously by a coding agent working through the "
+        "night — from first principles, with no ML libraries, just the Python "
+        "standard library. Each one runs offline, is fully deterministic, and "
+        "ships with a passing test suite."
+    ),
+    "cta": "Scroll the collection, or filter by theme — each card shows its real demo output.",
 }
 
 # Plain-English blurb per theme ("the six rooms").
