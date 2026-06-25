@@ -13,14 +13,18 @@ install), and upgrades to a real model when `ANTHROPIC_API_KEY` is set.
 
 ## 🖼️ Showcase
 
-- **Live gallery** → **https://amitshrivastavaa.github.io/ai-agents/** — every
-  demo's real output on one page (auto-built by [`tools/build_site.py`](../tools/build_site.py)
-  and published by the [`pages`](../.github/workflows/pages.yml) workflow; enable
-  it once via repo *Settings → Pages → Source: GitHub Actions*).
-- **Browse locally** → `python -m labs` lists all MVPs; `python -m labs <name>`
-  runs one; `python -m labs --all` runs them all.
-- **Rebuild the page** → `python tools/build_site.py` writes `docs/index.html`
-  (open it directly — no server needed).
+**[the lab terminal](_showcase/)** — a deployable, terminal-aesthetic site: a
+boot-menu launcher with every lab's real demo output, theme filters, `/` search,
+and a per-lab session view. Auto-discovers every lab with a `demo.py`, so it
+grows as new MVPs land.
+
+- **Live site** → **https://amitshrivastavaa.github.io/ai-agents/**, published by
+  the [`showcase`](../.github/workflows/showcase.yml) workflow on every push to
+  `main` (enable once via repo *Settings → Pages → Source: GitHub Actions*).
+- **Build it locally** → `python -m labs._showcase.build --out site`, then
+  `python -m http.server -d site 8000` and open <http://localhost:8000>.
+- **Browse in the terminal** → `python -m labs` lists all MVPs; `python -m labs
+  <name>` runs one; `python -m labs --all` runs them all.
 
 ## The MVPs
 

@@ -37,7 +37,7 @@ def main(argv):
         print()
     print("\n  python -m labs <name>    run one demo")
     print("  python -m labs --all     run every demo")
-    print("  open docs/index.html     the full visual gallery")
+    print("  python -m labs._showcase.build   build the showcase site")
     return 0
 
 

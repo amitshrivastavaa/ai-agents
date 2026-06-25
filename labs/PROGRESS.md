@@ -52,8 +52,12 @@ into `labs/`, continuously through the night. Go wild — but ship things that
   `docs/index.html`, `pages.yml` auto-deploy) + `python -m labs` launcher. Live at
   https://amitshrivastavaa.github.io/ai-agents/ once Pages source is set to
   "GitHub Actions" in repo settings (one-time, user must toggle).
-  NOTE: regenerate `docs/index.html` (`python tools/build_site.py`) when adding an
-  MVP so the committed snapshot stays current (the workflow also rebuilds on push).
+  NOTE: this static gallery was SUPERSEDED by `labs/_showcase` (the "lab terminal")
+  on branch `claude/labs-showcase` — a terminal-aesthetic SPA that auto-discovers
+  every `demo.py`, so adding an MVP needs NO showcase regeneration. The old
+  `tools/build_site.py`, `docs/index.html`, and `pages.yml` were removed; deploy is
+  now `.github/workflows/showcase.yml`. Optionally add new labs to the theme map in
+  `labs/_showcase/themes.py` (unmapped labs fall back to the "classical" theme).
 - PR #22 merged: #41 `forest` (random forest, ensembles #40 tree) → `main`.
 - PR #23 merged: #42 `boosting` (gradient boosting / XGBoost engine) → `main`.
 - PR #24 merged: #43 `naivebayes` (Naive Bayes text classifier) → `main`.
