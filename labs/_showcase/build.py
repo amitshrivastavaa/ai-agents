@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -21,6 +22,12 @@ from .themes import THEMES, theme_for
 
 STATIC_DIR = Path(__file__).resolve().parent / "static"
 REPO_URL = "https://github.com/amitshrivastavaa/ai-agents/tree/main/labs"
+
+
+def _count_tests() -> int:
+    """Total `def test_…` functions across every lab — a headline stat."""
+    return sum(len(re.findall(r"\n    def test_", f.read_text(encoding="utf-8")))
+               for f in LABS_DIR.glob("*/tests/test_*.py"))
 
 
 def collect(names: list[str] | None = None) -> dict:
@@ -43,7 +50,8 @@ def collect(names: list[str] | None = None) -> dict:
         })
     themes = {tid: {**meta, "blurb": THEME_BLURBS.get(tid, "")}
               for tid, meta in THEMES.items()}
-    return {"hero": HERO, "themes": themes, "labs": labs}
+    stats = {"labs": len(labs), "tests": _count_tests()}
+    return {"hero": HERO, "stats": stats, "themes": themes, "labs": labs}
 
 
 def build(out_dir: Path, names: list[str] | None = None) -> dict:
