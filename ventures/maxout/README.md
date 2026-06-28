@@ -8,6 +8,8 @@
 It's your overnight loop, aimed at *your real backlog* instead of a museum, and
 instrumented so "I burned my quota" becomes "here's the value I got."
 
+![The Maxout dashboard](ui/preview.png)
+
 ## The analytics (the part you asked about)
 Maxout turns a log of autopilot runs into five families of metric. **Bold = live in
 the demo right now**; the rest are natural next additions on the same data.
