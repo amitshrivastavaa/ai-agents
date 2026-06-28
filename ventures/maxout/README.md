@@ -83,13 +83,24 @@ cards — with a week selector across the top.
 ```
 The under-use → maxed-out story (48% → 96%) is exactly the pain you described.
 
-## What's real vs. what plugs in
-- **Real today:** the analytics engine + report, fully tested, offline.
-- **Plugs in (`runner.py`):** the live `ClaudeCodeRunner` that scans a repo for work,
-  drives `claude -p` headless on a worktree to implement + test each item, opens a PR,
-  records a Task, and **stops when the weekly credit budget is hit — so you finish it
-  every week.** Kept as an interface on purpose: the value to see today is the
-  engine + analytics; the live wiring is one module.
+## Live runner & backlog scanner
+- **`scanner.py`** finds real work in any repo (missing tests, missing docstrings,
+  TODO/FIXME, bare `except:`, oversized files). A real scan of this repo's `labs/`
+  surfaced **208 items** (~$288 of capacity to clear).
+
+  ```bash
+  python -m ventures.maxout.scan labs          # see the real backlog
+  python -m ventures.maxout.scan . --execute   # run claude per item (needs your Max)
+  ```
+
+- **`runner.py` → `ClaudeCodeRunner`** drives `claude -p` headless over that backlog on
+  a fresh branch, runs the repo's tests, and **stops at the weekly credit budget — so you
+  finish it every week.** `dry_run=True` (default) records the backlog as 'open' Tasks
+  without calling claude or touching git, so the analytics run anywhere.
+
+**Honesty boundary:** the scanner + runner are real and tested (18 tests). The execute
+step (claude fixing code → branch → PR) runs on a machine where *your* Claude Code Max is
+authenticated — that's where the dashboard fills with your real completed-work numbers.
 
 ## Two layers (they stack)
 1. **Personal tool (now):** scratches your own itch, uses your one edge (build capacity),
