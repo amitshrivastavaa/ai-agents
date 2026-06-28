@@ -1,5 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "python3 -m labs._showcase.build --out site",
+  "buildCommand": "python3 -m labs._showcase.build --out site && python3 -m ventures.maxout.export && cp -r ventures/maxout/ui site/maxout",
   "outputDirectory": "site"
 }
