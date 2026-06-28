@@ -25,8 +25,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Build the showcase (stdlib only, no deps)
-        run: python -m labs._showcase.build --out site
+      - name: Build the showcase + Maxout dashboard (stdlib only, no deps)
+        run: |
+          python -m labs._showcase.build --out site
+          python -m ventures.maxout.export
+          cp -r ventures/maxout/ui site/maxout
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
