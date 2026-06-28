@@ -1,0 +1,603 @@
+{
+  "weeks": [
+    "2026-W20",
+    "2026-W21",
+    "2026-W22",
+    "2026-W23",
+    "2026-W24",
+    "2026-W25"
+  ],
+  "available": {
+    "2026-W20": 1000.0,
+    "2026-W21": 1000.0,
+    "2026-W22": 1000.0,
+    "2026-W23": 1000.0,
+    "2026-W24": 1000.0,
+    "2026-W25": 1000.0
+  },
+  "byWeek": {
+    "2026-W20": {
+      "utilization": {
+        "week": "2026-W20",
+        "used": 480.0,
+        "available": 1000.0,
+        "pct": 0.48,
+        "idle": 520.0,
+        "usd_equiv": 8.64,
+        "wasted_credits": 160.0
+      },
+      "value": {
+        "prs_opened": 5,
+        "prs_merged": 4,
+        "prs_rejected": 0,
+        "failed": 1,
+        "acceptance_rate": 0.8,
+        "rework_rate": 0.0,
+        "bugs_fixed": 1,
+        "tests_coverage_delta": 0.9,
+        "deps_updated": 0,
+        "cves_patched": 0,
+        "docs_pages": 2,
+        "todos_closed": 0,
+        "lines_changed": 265,
+        "files_changed": 7,
+        "hours_saved": 2.6
+      },
+      "byKind": {
+        "bug_fix": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 80.0,
+          "hours_saved": 0.8
+        },
+        "tests": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 80.0,
+          "hours_saved": 0.5
+        },
+        "deps": {
+          "attempted": 1,
+          "merged": 0,
+          "credits": 80.0,
+          "hours_saved": 0.0
+        },
+        "cve": {
+          "attempted": 1,
+          "merged": 0,
+          "credits": 80.0,
+          "hours_saved": 0.0
+        },
+        "docs": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 80.0,
+          "hours_saved": 0.4
+        },
+        "refactor": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 80.0,
+          "hours_saved": 1.0
+        }
+      }
+    },
+    "2026-W21": {
+      "utilization": {
+        "week": "2026-W21",
+        "used": 609.7,
+        "available": 1000.0,
+        "pct": 0.6097,
+        "idle": 390.3,
+        "usd_equiv": 10.97,
+        "wasted_credits": 261.3
+      },
+      "value": {
+        "prs_opened": 6,
+        "prs_merged": 4,
+        "prs_rejected": 0,
+        "failed": 1,
+        "acceptance_rate": 0.6667,
+        "rework_rate": 0.1667,
+        "bugs_fixed": 1,
+        "tests_coverage_delta": 1.2,
+        "deps_updated": 0,
+        "cves_patched": 0,
+        "docs_pages": 2,
+        "todos_closed": 0,
+        "lines_changed": 340,
+        "files_changed": 10,
+        "hours_saved": 2.7
+      },
+      "byKind": {
+        "bug_fix": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 87.1,
+          "hours_saved": 0.8
+        },
+        "tests": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 87.1,
+          "hours_saved": 0.4
+        },
+        "cve": {
+          "attempted": 1,
+          "merged": 0,
+          "credits": 87.1,
+          "hours_saved": 0.0
+        },
+        "docs": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 87.1,
+          "hours_saved": 0.4
+        },
+        "refactor": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 87.1,
+          "hours_saved": 1.1
+        },
+        "todo": {
+          "attempted": 1,
+          "merged": 0,
+          "credits": 87.1,
+          "hours_saved": 0.0
+        },
+        "perf": {
+          "attempted": 1,
+          "merged": 0,
+          "credits": 87.1,
+          "hours_saved": 0.0
+        }
+      }
+    },
+    "2026-W22": {
+      "utilization": {
+        "week": "2026-W22",
+        "used": 720.0,
+        "available": 1000.0,
+        "pct": 0.72,
+        "idle": 280.0,
+        "usd_equiv": 12.96,
+        "wasted_credits": 270.0
+      },
+      "value": {
+        "prs_opened": 7,
+        "prs_merged": 5,
+        "prs_rejected": 0,
+        "failed": 1,
+        "acceptance_rate": 0.7143,
+        "rework_rate": 0.1429,
+        "bugs_fixed": 1,
+        "tests_coverage_delta": 1.5,
+        "deps_updated": 0,
+        "cves_patched": 0,
+        "docs_pages": 1,
+        "todos_closed": 1,
+        "lines_changed": 405,
+        "files_changed": 12,
+        "hours_saved": 3.2
+      },
+      "byKind": {
+        "bug_fix": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 90.0,
+          "hours_saved": 0.9
+        },
+        "tests": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 90.0,
+          "hours_saved": 0.4
+        },
+        "deps": {
+          "attempted": 1,
+          "merged": 0,
+          "credits": 90.0,
+          "hours_saved": 0.0
+        },
+        "cve": {
+          "attempted": 1,
+          "merged": 0,
+          "credits": 90.0,
+          "hours_saved": 0.0
+        },
+        "docs": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 90.0,
+          "hours_saved": 0.3
+        },
+        "refactor": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 90.0,
+          "hours_saved": 1.2
+        },
+        "todo": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 90.0,
+          "hours_saved": 0.3
+        },
+        "perf": {
+          "attempted": 1,
+          "merged": 0,
+          "credits": 90.0,
+          "hours_saved": 0.0
+        }
+      }
+    },
+    "2026-W23": {
+      "utilization": {
+        "week": "2026-W23",
+        "used": 829.8,
+        "available": 1000.0,
+        "pct": 0.8298,
+        "idle": 170.2,
+        "usd_equiv": 14.94,
+        "wasted_credits": 276.6
+      },
+      "value": {
+        "prs_opened": 8,
+        "prs_merged": 6,
+        "prs_rejected": 0,
+        "failed": 1,
+        "acceptance_rate": 0.75,
+        "rework_rate": 0.125,
+        "bugs_fixed": 1,
+        "tests_coverage_delta": 1.2,
+        "deps_updated": 2,
+        "cves_patched": 0,
+        "docs_pages": 1,
+        "todos_closed": 0,
+        "lines_changed": 470,
+        "files_changed": 9,
+        "hours_saved": 3.4
+      },
+      "byKind": {
+        "bug_fix": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 92.2,
+          "hours_saved": 1.0
+        },
+        "tests": {
+          "attempted": 2,
+          "merged": 2,
+          "credits": 184.4,
+          "hours_saved": 1.0
+        },
+        "deps": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 92.2,
+          "hours_saved": 0.2
+        },
+        "cve": {
+          "attempted": 1,
+          "merged": 0,
+          "credits": 92.2,
+          "hours_saved": 0.0
+        },
+        "docs": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 92.2,
+          "hours_saved": 0.3
+        },
+        "refactor": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 92.2,
+          "hours_saved": 0.8
+        },
+        "todo": {
+          "attempted": 1,
+          "merged": 0,
+          "credits": 92.2,
+          "hours_saved": 0.0
+        },
+        "perf": {
+          "attempted": 1,
+          "merged": 0,
+          "credits": 92.2,
+          "hours_saved": 0.0
+        }
+      }
+    },
+    "2026-W24": {
+      "utilization": {
+        "week": "2026-W24",
+        "used": 910.0,
+        "available": 1000.0,
+        "pct": 0.91,
+        "idle": 90.0,
+        "usd_equiv": 16.38,
+        "wasted_credits": 364.0
+      },
+      "value": {
+        "prs_opened": 9,
+        "prs_merged": 6,
+        "prs_rejected": 1,
+        "failed": 1,
+        "acceptance_rate": 0.6667,
+        "rework_rate": 0.1111,
+        "bugs_fixed": 1,
+        "tests_coverage_delta": 0.9,
+        "deps_updated": 0,
+        "cves_patched": 0,
+        "docs_pages": 3,
+        "todos_closed": 1,
+        "lines_changed": 586,
+        "files_changed": 12,
+        "hours_saved": 4.2
+      },
+      "byKind": {
+        "bug_fix": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 91.0,
+          "hours_saved": 0.8
+        },
+        "tests": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 91.0,
+          "hours_saved": 0.6
+        },
+        "deps": {
+          "attempted": 1,
+          "merged": 0,
+          "credits": 91.0,
+          "hours_saved": 0.0
+        },
+        "cve": {
+          "attempted": 1,
+          "merged": 0,
+          "credits": 91.0,
+          "hours_saved": 0.0
+        },
+        "docs": {
+          "attempted": 2,
+          "merged": 1,
+          "credits": 182.0,
+          "hours_saved": 0.4
+        },
+        "refactor": {
+          "attempted": 2,
+          "merged": 2,
+          "credits": 182.0,
+          "hours_saved": 1.9
+        },
+        "todo": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 91.0,
+          "hours_saved": 0.5
+        },
+        "perf": {
+          "attempted": 1,
+          "merged": 0,
+          "credits": 91.0,
+          "hours_saved": 0.0
+        }
+      }
+    },
+    "2026-W25": {
+      "utilization": {
+        "week": "2026-W25",
+        "used": 960.3,
+        "available": 1000.0,
+        "pct": 0.9603,
+        "idle": 39.7,
+        "usd_equiv": 17.29,
+        "wasted_credits": 349.2
+      },
+      "value": {
+        "prs_opened": 10,
+        "prs_merged": 7,
+        "prs_rejected": 1,
+        "failed": 1,
+        "acceptance_rate": 0.7,
+        "rework_rate": 0.1,
+        "bugs_fixed": 1,
+        "tests_coverage_delta": 2.4,
+        "deps_updated": 4,
+        "cves_patched": 0,
+        "docs_pages": 3,
+        "todos_closed": 0,
+        "lines_changed": 478,
+        "files_changed": 11,
+        "hours_saved": 4.2
+      },
+      "byKind": {
+        "bug_fix": {
+          "attempted": 2,
+          "merged": 1,
+          "credits": 174.6,
+          "hours_saved": 0.8
+        },
+        "tests": {
+          "attempted": 2,
+          "merged": 2,
+          "credits": 174.6,
+          "hours_saved": 1.1
+        },
+        "deps": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 87.3,
+          "hours_saved": 0.2
+        },
+        "cve": {
+          "attempted": 1,
+          "merged": 0,
+          "credits": 87.3,
+          "hours_saved": 0.0
+        },
+        "docs": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 87.3,
+          "hours_saved": 0.4
+        },
+        "refactor": {
+          "attempted": 1,
+          "merged": 1,
+          "credits": 87.3,
+          "hours_saved": 1.1
+        },
+        "todo": {
+          "attempted": 1,
+          "merged": 0,
+          "credits": 87.3,
+          "hours_saved": 0.0
+        },
+        "perf": {
+          "attempted": 2,
+          "merged": 1,
+          "credits": 174.6,
+          "hours_saved": 0.6
+        }
+      }
+    }
+  },
+  "agentPerformance": {
+    "bug_fix": {
+      "attempted": 7,
+      "acceptance_rate": 0.8571,
+      "avg_credits": 87.8,
+      "roi_min_per_credit": 0.5
+    },
+    "tests": {
+      "attempted": 8,
+      "acceptance_rate": 1.0,
+      "avg_credits": 88.4,
+      "roi_min_per_credit": 0.34
+    },
+    "deps": {
+      "attempted": 5,
+      "acceptance_rate": 0.4,
+      "avg_credits": 88.1,
+      "roi_min_per_credit": 0.06
+    },
+    "cve": {
+      "attempted": 6,
+      "acceptance_rate": 0.0,
+      "avg_credits": 87.9,
+      "roi_min_per_credit": 0.0
+    },
+    "docs": {
+      "attempted": 7,
+      "acceptance_rate": 0.8571,
+      "avg_credits": 88.4,
+      "roi_min_per_credit": 0.21
+    },
+    "refactor": {
+      "attempted": 7,
+      "acceptance_rate": 1.0,
+      "avg_credits": 88.4,
+      "roi_min_per_credit": 0.7
+    },
+    "todo": {
+      "attempted": 5,
+      "acceptance_rate": 0.4,
+      "avg_credits": 89.5,
+      "roi_min_per_credit": 0.11
+    },
+    "perf": {
+      "attempted": 6,
+      "acceptance_rate": 0.3333,
+      "avg_credits": 89.1,
+      "roi_min_per_credit": 0.07
+    }
+  },
+  "perRepo": {
+    "api": {
+      "tasks": 17,
+      "merged": 10,
+      "credits": 1503.0,
+      "coverage_delta": 2.7,
+      "bugs_fixed": 2,
+      "cves_patched": 0,
+      "hours_saved": 6.7
+    },
+    "infra": {
+      "tasks": 17,
+      "merged": 12,
+      "credits": 1503.0,
+      "coverage_delta": 2.1,
+      "bugs_fixed": 2,
+      "cves_patched": 0,
+      "hours_saved": 7.4
+    },
+    "web": {
+      "tasks": 17,
+      "merged": 10,
+      "credits": 1503.8,
+      "coverage_delta": 3.3,
+      "bugs_fixed": 2,
+      "cves_patched": 0,
+      "hours_saved": 6.3
+    }
+  },
+  "trend": [
+    {
+      "week": "2026-W20",
+      "pct": 0.48,
+      "used": 480.0,
+      "merged": 4,
+      "hours_saved": 2.6
+    },
+    {
+      "week": "2026-W21",
+      "pct": 0.6097,
+      "used": 609.7,
+      "merged": 4,
+      "hours_saved": 2.7
+    },
+    {
+      "week": "2026-W22",
+      "pct": 0.72,
+      "used": 720.0,
+      "merged": 5,
+      "hours_saved": 3.2
+    },
+    {
+      "week": "2026-W23",
+      "pct": 0.8298,
+      "used": 829.8,
+      "merged": 6,
+      "hours_saved": 3.4
+    },
+    {
+      "week": "2026-W24",
+      "pct": 0.91,
+      "used": 910.0,
+      "merged": 6,
+      "hours_saved": 4.2
+    },
+    {
+      "week": "2026-W25",
+      "pct": 0.9603,
+      "used": 960.3,
+      "merged": 7,
+      "hours_saved": 4.2
+    }
+  ],
+  "kindLabels": {
+    "bug_fix": "Bug fixes",
+    "tests": "Test coverage",
+    "deps": "Dependency updates",
+    "cve": "Security patches",
+    "docs": "Documentation",
+    "refactor": "Refactors",
+    "todo": "TODO cleanup",
+    "perf": "Performance"
+  }
+}
