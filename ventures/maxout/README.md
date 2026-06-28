@@ -45,7 +45,19 @@ python -m ventures.maxout runs.json       # your own logged runs
 python -m unittest ventures.maxout.tests.test_analytics -v   # 10 tests
 ```
 
-## Sample output
+## Dashboard (UI)
+A static, dependency-free dashboard (dark theme, inline-SVG charts) that reads the
+generated `data.json` — deployable on Vercel, viewable offline.
+
+```bash
+python -m ventures.maxout.export                       # writes ui/data.json
+cd ventures/maxout/ui && python -m http.server 8099    # open http://localhost:8099
+```
+Quota donut, capacity-by-kind bars, utilization/hours sparklines, a color-coded
+reliability table (green = trust it, red = stop wasting quota on it), and per-repo
+cards — with a week selector across the top.
+
+## Sample output (terminal)
 ```
              MAXOUT · weekly Claude Code Max report
 ================================================================

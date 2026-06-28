@@ -1,0 +1,83 @@
+/* Maxout dashboard — dark, dependency-free */
+:root{
+  --bg:#0b0e14; --panel:#141a23; --panel2:#19212c; --ink:#e6edf3; --mut:#8b98a9;
+  --acc:#5ad27e; --gold:#e3b341; --red:#ff6b6b; --border:#222b38; --track:#1a2230;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+#app{max-width:1080px;margin:0 auto;padding:0 20px 60px}
+.boot,.err{font-family:ui-monospace,monospace;color:var(--mut);padding:48px 0}
+code{font-family:ui-monospace,Menlo,monospace;font-size:.9em;color:var(--mut)}
+small{font-weight:400;color:var(--mut)}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  flex-wrap:wrap;padding:22px 0 18px;border-bottom:1px solid var(--border);margin-bottom:22px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .mark{flex:none}
+.word{font-weight:700;font-size:18px;letter-spacing:-.01em}
+.tag{color:var(--mut);font-size:13px;margin-left:4px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{background:var(--panel);border:1px solid var(--border);border-radius:18px;
+  color:#c4cedb;padding:5px 12px;font-size:12px;cursor:pointer;font-family:ui-monospace,monospace}
+.chip:hover{border-color:var(--acc)}
+.chip.on{border-color:var(--acc);color:#fff;box-shadow:inset 0 0 0 1px var(--acc)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:200px 1fr;gap:22px;margin:0 0 22px}
+.ring{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px}
+.ringnote{color:var(--mut);font-size:12px;margin-top:8px;text-align:center}
+.donut{width:150px;height:150px}
+.donut .track{fill:none;stroke:var(--track);stroke-width:12}
+.donut .val{fill:none;stroke:var(--acc);stroke-width:12;stroke-linecap:round;
+  transition:stroke-dashoffset .6s ease}
+.dnum{font-size:30px;font-weight:700;fill:var(--ink)}
+.dlbl{font-size:10px;fill:var(--mut);letter-spacing:.14em;text-transform:uppercase}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:15px 16px}
+.card b{display:block;font-size:26px;font-weight:700;line-height:1.1}
+.card b small{font-size:15px;color:var(--mut);font-weight:600}
+.card span{color:var(--mut);font-size:12px}
+.card.warn{border-color:#4a3a1a}.card.warn b{color:var(--gold)}
+
+/* panels */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 16px}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px 20px}
+.panel h3{margin:0 0 14px;font-size:14px;letter-spacing:.02em}
+.panel h3 small{display:block;font-weight:400;font-size:12px;margin-top:3px}
+.rows{display:flex;flex-direction:column;gap:9px}
+.row{display:grid;grid-template-columns:120px 1fr auto;align-items:center;gap:10px;font-size:12.5px}
+.rlbl{color:#c4cedb}
+.track2{height:8px;background:var(--track);border-radius:6px;overflow:hidden}
+.fill{display:block;height:100%;background:var(--acc);border-radius:6px}
+.fill.good{background:var(--acc)}.fill.mid{background:var(--gold)}.fill.bad{background:var(--red)}
+.rval{color:var(--mut);font-family:ui-monospace,monospace;font-size:11.5px;white-space:nowrap}
+
+/* sparklines */
+.trend{margin:0 0 14px}
+.tlbl{display:flex;justify-content:space-between;font-size:12.5px;color:var(--mut);margin:0 0 4px}
+.tlbl b{color:var(--ink)}
+.spark{width:100%;height:46px}
+.sline{fill:none;stroke:var(--acc);stroke-width:2;vector-effect:non-scaling-stroke}
+.sarea{fill:rgba(90,210,126,.12);stroke:none}
+.sdot{fill:var(--acc)}
+
+/* repos */
+.repos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.repo{background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:13px 14px}
+.repo h4{margin:0 0 6px;font-family:ui-monospace,monospace;font-size:13px;color:var(--acc)}
+.repo .big{margin:0;font-size:22px;font-weight:700}
+.repo .big span{font-size:12px;color:var(--mut);font-weight:400}
+.repo .muted{margin:5px 0 0;color:var(--mut);font-size:11.5px;line-height:1.4}
+
+footer{color:var(--mut);font-size:12.5px;text-align:center;padding:26px 0 0;
+  border-top:1px solid var(--border);margin-top:8px}
+
+@media(max-width:760px){
+  .hero{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}
+  .grid2{grid-template-columns:1fr}.repos{grid-template-columns:repeat(2,1fr)}
+  .row{grid-template-columns:96px 1fr auto}
+}
